@@ -52,4 +52,4 @@ export default tseslint.config({
 =======
 # Food-Delivery-App
 Creating a food delivery app using typescript and material UI within React Library.
->>>>>>> 9e1120e2a25ba7d7ca2f200b11e823ece2ae4720
+

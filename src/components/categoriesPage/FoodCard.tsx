@@ -14,13 +14,16 @@ const FoodCard: React.FC = () => {
     return (
 
         <Box sx={{
-            marginInline: '40px'
+            marginBottom: '20px',
+
+            marginLeft: '60px', // my own jugad for responsiveness
+            marginRight: '30px' // my own jugad for responsiveness
         }}>
 
 
             <Grid
                 container
-                spacing={2}
+                spacing={4}
                 justifyContent="center"
                 sx={{ width: "100%", marginTop: 4 }}
             >

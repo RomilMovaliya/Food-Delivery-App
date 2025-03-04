@@ -13,9 +13,9 @@ const HomePage = () => {
     return (
         <>
             <Home />
-            <Hero />
+
             <CuisineList />
-            {/* <PopularRecipes /> */}
+            <PopularRecipes />
             <FeaturedFood />
             <Offers />
             <Gallery />

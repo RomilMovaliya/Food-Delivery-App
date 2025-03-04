@@ -5,7 +5,6 @@ import cuisineImg3 from '../../assets/Images/cuisineImg3.jpg'
 import dish1 from '../../assets/Images/dish1.jpg'
 import dish2 from '../../assets/Images/dish2.jpg'
 import dish3 from '../../assets/Images/dish3.jpg'
-import { Height } from '@mui/icons-material';
 
 const CuisineList: React.FC = () => {
   return (

@@ -8,14 +8,12 @@ import brand5 from '../../assets/Images/CategoriesImg/brand5.png';
 import brand6 from '../../assets/Images/CategoriesImg/brand6.png';
 
 
-import { yellow } from '@mui/material/colors';
-import FoodCategory from './FoodCategory';
-
 const TopBrands: React.FC = () => {
     return (
         <>
             <Box sx={{
-                marginInline: '60px'
+                marginInline: '60px',
+                marginTop: '100px'
             }}>
                 <Typography variant="h5" fontWeight="bold" mb={2}>
                     Top brands for you
@@ -43,6 +41,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand1} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
@@ -64,6 +63,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand2} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
@@ -85,6 +85,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand3} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
@@ -106,6 +107,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand4} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
@@ -127,6 +129,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand5} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
@@ -150,6 +153,7 @@ const TopBrands: React.FC = () => {
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
+                            paddingTop: '2px'
                         }} src={brand6} />
                         <Typography fontWeight={700} sx={{
                             paddingTop: '40px',
