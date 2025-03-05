@@ -224,7 +224,7 @@ const CuisineList: React.FC = () => {
               <Box component='img' src={dish1} sx={{ objectFit: "cover" }} alt="dish1.jpeg" width={{ xs: 160, lg: 150 }} height={150} borderRadius={100} />
 
 
-              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={700}>Chicken Noodles</Typography>
+              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={400}>Chicken Noodles</Typography>
               {/* line */}
 
             </Box>
@@ -251,7 +251,7 @@ const CuisineList: React.FC = () => {
             <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               {/* dish image */}
               <img style={{ borderRadius: '50%', width: '150px', height: '150px', objectFit: 'cover' }} src={dish2} alt="dish1.jpeg" />
-              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={700}>Chicken Noodles</Typography>
+              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={400}>Chicken Noodles</Typography>
               {/* line */}
 
             </Container>
@@ -275,7 +275,7 @@ const CuisineList: React.FC = () => {
             <Container sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               {/* dish image */}
               <img style={{ borderRadius: '50%', width: '150px', height: '150px', objectFit: 'cover' }} src={dish3} alt="dish1.jpeg" />
-              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={700}>Chicken Noodles</Typography>
+              <Typography fontSize={19} fontFamily={'Poppins'} color='black' textAlign={'center'} fontWeight={400}>Chicken Noodles</Typography>
               {/* line */}
 
             </Container>

@@ -197,6 +197,17 @@ const Gallery: React.FC = () => {
             <section id="social-media">
                 <Box className="grid-contanier"
                     sx={{
+                        '@keyframes appear': {
+                            from: {
+                                opacity: 0,
+                                transform: 'scale(0.5)',
+                            },
+                            to: {
+                                opacity: 1,
+                                transform: 'scale(1)',
+                            },
+                        },
+                        animation: 'appear 1s linear',  // Apply animation
                         margin: {
                             lg: '100px',
                             md: '80px',

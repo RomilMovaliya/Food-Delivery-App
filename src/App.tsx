@@ -8,6 +8,7 @@ import HomePage from './components/HomePage/HomePage'
 import { BrowserRouter, Route, Routes } from "react-router";
 import DetailView from './components/detailViewPage/detailView';
 import CartItem from './components/CartPage/CartItem';
+import LoginPage from './components/Authentication/LoginPage';
 
 function App() {
   const [navbarColor, setNavbarColor] = useState('transparent'); // Default color
@@ -23,6 +24,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/detailView" element={<DetailView />} />
           <Route path="/cart" element={<CartItem />} />
+          <Route path="/profile" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
 

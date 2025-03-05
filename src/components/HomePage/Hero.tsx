@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import { NavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
+import { AccountCircle } from '@mui/icons-material';
 
 
 const Hero: React.FC = () => {
@@ -14,8 +15,9 @@ const Hero: React.FC = () => {
     const cartItemCount = 5; // You can replace this with dynamic cart item count if needed
 
     // Set colors based on the current route
-    const isCategoriesPage = location.pathname === '/categories' || location.pathname === '/detailView' || location.pathname === '/cart';
+    const isCategoriesPage = location.pathname === '/categories' || location.pathname === '/detailView' || location.pathname === '/cart' || location.pathname === '/profile';
     const manuColor = isCategoriesPage ? '#FFC300' : 'white';
+    const ProfileColor = isCategoriesPage ? '#FFC300' : 'white';
     const navLinkColor = isCategoriesPage ? '#FFC300' : '#FFC300';
     const iconButtonColor = isCategoriesPage ? '#FFC300' : 'white';
 
@@ -74,6 +76,32 @@ const Hero: React.FC = () => {
                                 <NavLink style={{ textDecoration: 'none', color: manuColor }} to='/categories'>Menu</NavLink>
 
                             </li>
+
+
+                            <li style={{ margin: '15px', listStyle: 'none' }}>
+
+                                <NavLink style={{ textDecoration: 'none', color: ProfileColor }} to='/profile'>
+
+                                    <IconButton>
+                                        <AccountCircle
+
+
+                                            sx={{
+                                                color: ProfileColor,
+                                                '.MuiBadge-dot': {
+                                                    backgroundColor: '#FFC300', // Set the badge color to yellow
+                                                },
+                                                '.MuiBadge-standard': {
+                                                    backgroundColor: '#FFC300', // Make sure the content badge is yellow too
+                                                },
+                                            }}
+                                        >
+
+                                        </AccountCircle>
+                                    </IconButton>
+                                </NavLink>
+                            </li>
+
                             <li style={{ margin: '15px', listStyle: 'none' }}>
 
                                 <NavLink style={{ textDecoration: 'none', color: manuColor }} to='/cart'>
@@ -95,6 +123,9 @@ const Hero: React.FC = () => {
                                     </IconButton>
                                 </NavLink>
                             </li>
+
+
+
                         </ul>
                     </Box>
 

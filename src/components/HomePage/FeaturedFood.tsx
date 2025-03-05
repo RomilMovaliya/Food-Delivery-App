@@ -1,5 +1,4 @@
 import { Box, Container, Typography } from '@mui/material'
-import React from 'react'
 import largerpic1 from '../../assets/Images/larger-pic1.jpg'
 
 const FeaturedFood = () => {
@@ -14,7 +13,7 @@ const FeaturedFood = () => {
                         backgroundRepeat: 'no-repeat',
                         position: 'relative',
                         width: '100%',
-                        height: '440px',
+                        height: '540px',
                     }}
                 >
 
@@ -22,7 +21,7 @@ const FeaturedFood = () => {
                     <Box sx={{
                         position: 'absolute',
                         width: '100%',
-                        height: '440px',
+                        height: '540px',
                         background: 'rgba(0, 0, 0, 0.46)',
                     }} />
 

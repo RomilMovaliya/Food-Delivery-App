@@ -1,18 +1,21 @@
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Button, Tab, Tabs, Typography } from "@mui/material";
 import pizo2 from "../../assets/Images/pizo2.png"; // Ensure correct path
 import { ShoppingBag } from "@mui/icons-material";
 import React, { useState } from "react"; // Import useState for managing tabs
 import leftImg from '../../assets/Images/left-side.png';
 import rightImg from '../../assets/Images/right-side.png'; // Ensure correct import for left image
+import { yellow } from "@mui/material/colors";
 
 const PopularRecipes = () => {
     // Define state for active tab
     const [value, setValue] = useState(0);
 
     // Handle tab change
-    const handleTabChange = (event, newValue: number) => {
+    const handleTabChange = (newValue: number) => {
         setValue(newValue);
     };
+
+    const buttonItem = ["Pizza", "Sides", "Chicken", "Dessert", "Drinks"];
 
     return (
         <Box className="content" sx={{ position: 'relative', marginTop: '20px' }}>
@@ -72,73 +75,43 @@ const PopularRecipes = () => {
                     }}
                 />
 
-                {/* Tabs Section */}
-                <Box id="tabs" sx={{
-                    display: 'flex', justifyContent: 'center'
+
+
+                {/* Tab Buttons */}
+                <Box sx={{
+                    display: 'grid',
+                    gridTemplateColumns: {
+                        xs: 'repeat(2, 1fr)',  // 2 columns on extra small screens
+                        sm: 'repeat(3, 1fr)',  // 3 columns on small screens
+                        md: 'repeat(5, 1fr)',  // 5 columns on medium and above
+                    },
+
+                    gap: '20px',
+                    marginInline: '60px',
+                    marginTop: '20px',
                 }}>
-                    <Tabs value={value} onChange={handleTabChange} textColor="inherit" indicatorColor="primary" >
-                        <Tab
-                            label="Pizza"
+                    {buttonItem.map((item, index) => (
+                        <Button
+                            key={index}
+                            onClick={() => handleTabChange(index)} // Handle tab change on click
+                            variant="contained"
                             sx={{
-                                padding: '1rem 3rem',
-                                borderRadius: '2rem',
-                                backgroundColor: value === 0 ? '#FFC300' : '#ECEEF6',
-                                color: value === 0 ? 'white' : 'black',
-                                '&:hover': { backgroundColor: '#FFC300' },
-                                transition: 'background-color 0.3s ease',
-                                marginRight: '1rem', // Add margin between tabs
+                                backgroundColor: value === index ? yellow[700] : '#ECEEF6',
+                                color: value === index ? 'white' : 'black',
+                                height: '50px',
+                                borderRadius: '30px',
+                                '&:hover': {
+                                    backgroundColor: value === index ? yellow[600] : '#D1D9E6',
+                                },
                             }}
-                        />
-                        <Tab
-                            label="Sides"
-                            sx={{
-                                padding: '1rem 3rem',
-                                borderRadius: '2rem',
-                                backgroundColor: value === 1 ? '#FFC300' : '#ECEEF6',
-                                color: value === 1 ? 'white' : 'black',
-                                '&:hover': { backgroundColor: '#FFC300' },
-                                transition: 'background-color 0.3s ease',
-                                marginRight: '1rem', // Add margin between tabs
-                            }}
-                        />
-                        <Tab
-                            label="Chicken"
-                            sx={{
-                                padding: '1rem 3rem',
-                                borderRadius: '2rem',
-                                backgroundColor: value === 2 ? '#FFC300' : '#ECEEF6',
-                                color: value === 2 ? 'white' : 'black',
-                                '&:hover': { backgroundColor: '#FFC300' },
-                                transition: 'background-color 0.3s ease',
-                                marginRight: '1rem', // Add margin between tabs
-                            }}
-                        />
-                        <Tab
-                            label="Dessert"
-                            sx={{
-                                padding: '1rem 3rem',
-                                borderRadius: '2rem',
-                                backgroundColor: value === 3 ? '#FFC300' : '#ECEEF6',
-                                color: value === 3 ? 'white' : 'black',
-                                '&:hover': { backgroundColor: '#FFC300' },
-                                transition: 'background-color 0.3s ease',
-                                marginRight: '1rem', // Add margin between tabs
-                            }}
-                        />
-                        <Tab
-                            label="Drinks"
-                            sx={{
-                                padding: '1rem 3rem',
-                                borderRadius: '2rem',
-                                backgroundColor: value === 4 ? '#FFC300' : '#ECEEF6',
-                                color: value === 4 ? 'white' : 'black',
-                                '&:hover': { backgroundColor: '#FFC300' },
-                                transition: 'background-color 0.3s ease',
-                                marginRight: '1rem', // Add margin between tabs
-                            }}
-                        />
-                    </Tabs>
+                        >
+                            {item}  {/* Display the name from the array */}
+                        </Button>
+                    ))}
                 </Box>
+
+
+
 
                 {/* Horizontal Scrollable Recipe Cards */}
                 <Box sx={{
@@ -222,7 +195,7 @@ const PopularRecipes = () => {
                     ))}
                 </Box>
             </Box>
-        </Box>
+        </Box >
     );
 };
 

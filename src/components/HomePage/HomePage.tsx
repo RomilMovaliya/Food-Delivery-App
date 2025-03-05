@@ -1,6 +1,4 @@
 
-import React from 'react'
-import Hero from './Hero'
 import CuisineList from './CuisineList'
 import PopularRecipes from './PopularRecipes'
 import FeaturedFood from './FeaturedFood'
@@ -10,17 +8,24 @@ import DownloadApp from './DownloadApp'
 import Home from './Home'
 
 const HomePage = () => {
+
+
+
     return (
         <>
-            <Home />
 
-            <CuisineList />
-            <PopularRecipes />
-            <FeaturedFood />
-            <Offers />
-            <Gallery />
-            <DownloadApp />
+            <>
+                <Home />
+                <CuisineList />
+                <PopularRecipes />
+                <FeaturedFood />
+                <Offers />
+                <Gallery />
+                <DownloadApp />
+            </>
+
         </>
+
     )
 }
 
