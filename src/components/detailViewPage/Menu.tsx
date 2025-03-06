@@ -4,9 +4,23 @@ const Menu = () => {
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', marginBottom: 3 }}>
-                <Box sx={{ width: '500px', paddingInline: '30px' }}><Typography fontSize={24} fontWeight="200" textAlign={'left'}>Menu</Typography></Box>
+                <Box sx={{
+                    width: '500px', paddingInline: '30px', '@media (max-width:600px)': {
+                        marginLeft: '0px',
+                        width: '280px'
+                    }
+                }}><Typography fontSize={24} fontWeight="200" textAlign={'left'}>Menu</Typography></Box>
 
-                <Stack direction="row" spacing={3} justifyContent="center" marginTop={2}>
+                <Stack flexDirection={{
+                    xs: 'column',
+                    lg: 'row',
+                    xl: 'row'
+                }} spacing={{
+                    xs: 3,
+                    lg: 0
+                }} justifyContent="center" gap={{
+                    lg: 3
+                }} marginTop={2}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Box
                             component="img"
@@ -26,7 +40,7 @@ const Menu = () => {
                             width="200px"
                             sx={{ borderRadius: '15px' }}
                         />
-                        <Typography sx={{ marginTop: 1 }}>Dining Menu</Typography>
+                        <Typography sx={{ marginTop: 1 }}>Takeaway Menu</Typography>
                     </Box>
                 </Stack>
             </Box>

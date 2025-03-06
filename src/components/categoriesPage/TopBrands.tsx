@@ -1,14 +1,18 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import brand1 from '../../assets/Images/CategoriesImg/brand1.png';
 import brand2 from '../../assets/Images/CategoriesImg/brand2.png';
 import brand3 from '../../assets/Images/CategoriesImg/brand3.png';
 import brand4 from '../../assets/Images/CategoriesImg/brand4.png';
 import brand5 from '../../assets/Images/CategoriesImg/brand5.png';
 import brand6 from '../../assets/Images/CategoriesImg/brand6.png';
+import { Navigate, useNavigate } from 'react-router';
+import { useParams } from 'react-router';
 
 
 const TopBrands: React.FC = () => {
+
+
     return (
         <>
             <Box sx={{
@@ -31,12 +35,14 @@ const TopBrands: React.FC = () => {
                     {/* Brand Item 1 */}
                     <Box sx={{
                         // border: '2px solid yellow',
+
                         width: '200px',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
+                        cursor: 'pointer',
                     }}>
                         <Box component='img' sx={{
                             height: '140px',
@@ -59,7 +65,8 @@ const TopBrands: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
-                    }}>
+                        cursor: 'pointer',
+                    }} >
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
@@ -81,6 +88,7 @@ const TopBrands: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
+                        cursor: 'pointer',
                     }}>
                         <Box component='img' sx={{
                             height: '140px',
@@ -103,6 +111,7 @@ const TopBrands: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
+                        cursor: 'pointer',
                     }}>
                         <Box component='img' sx={{
                             height: '140px',
@@ -125,7 +134,8 @@ const TopBrands: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
-                    }}>
+                        cursor: 'pointer',
+                    }} >
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',
@@ -149,7 +159,8 @@ const TopBrands: React.FC = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         height: '200px',
-                    }}>
+                        cursor: 'pointer',
+                    }} >
                         <Box component='img' sx={{
                             height: '140px',
                             width: '140px',

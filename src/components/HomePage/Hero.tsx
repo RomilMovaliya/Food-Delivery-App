@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { AccountCircle } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../Redux/store/store';
 
 
 const Hero: React.FC = () => {
@@ -12,7 +14,8 @@ const Hero: React.FC = () => {
 
     const location = useLocation(); // Get the current location
 
-    const cartItemCount = 5; // You can replace this with dynamic cart item count if needed
+    const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
+
 
     // Set colors based on the current route
     const isCategoriesPage = location.pathname === '/categories' || location.pathname === '/detailView' || location.pathname === '/cart' || location.pathname === '/profile';

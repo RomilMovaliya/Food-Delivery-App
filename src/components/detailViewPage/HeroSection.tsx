@@ -4,7 +4,7 @@ import { Box, Button, Stack, Typography } from '@mui/material'
 
 const HeroSection = () => {
 
-    const [selectedIndex, setSelectedIndex] = useState(null);  // Initialize as null to have no button selected initially
+    const [selectedIndex, setSelectedIndex] = useState(0);  // Initialize as null to have no button selected initially
 
     const handleButtonClick = (index) => {
         setSelectedIndex(index);  // Set the selected index when a button is clicked

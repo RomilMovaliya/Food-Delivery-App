@@ -1,13 +1,14 @@
-import React from 'react'
 import Header from './Header'
 import HeroSection from './HeroSection'
 import Menu from './Menu'
 import OrderOnline from './OrderOnline'
 import RecommendedItems from './RecommendedItems'
 
-const DetailView = () => {
+const detailView = () => {
+
     return (
         <>
+
             <Header />
             <HeroSection />
             <Menu />
@@ -17,4 +18,4 @@ const DetailView = () => {
     )
 }
 
-export default DetailView
+export default detailView
