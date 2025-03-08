@@ -1,44 +1,201 @@
 import { Box, Button, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import headerItem1 from '../../assets/Images/DetailViewImg/headerItem1.png';
 import headerItem2 from '../../assets/Images/DetailViewImg/headerItem2.png';
 import headerItem3 from '../../assets/Images/DetailViewImg/headerItem3.png';
+import burger1 from '../../assets/Images/DetailViewImg/burger1.jpg';
+import burger2 from '../../assets/Images/DetailViewImg/burger2.jpg';
+import burger3 from '../../assets/Images/DetailViewImg/burger3.jpg';
+import burger4 from '../../assets/Images/DetailViewImg/burger4.jpg';
+import burger5 from '../../assets/Images/DetailViewImg/burger5.jpg';
+import chicken1 from '../../assets/Images/DetailViewImg/burger1.jpg';
+import chicken2 from '../../assets/Images/DetailViewImg/burger2.jpg';
+import chicken3 from '../../assets/Images/DetailViewImg/burger3.jpg';
+import chicken4 from '../../assets/Images/DetailViewImg/burger4.jpg';
+import chicken5 from '../../assets/Images/DetailViewImg/burger5.jpg';
+import desserts1 from '../../assets/Images/DetailViewImg/desserts1.png';
+import desserts2 from '../../assets/Images/DetailViewImg/desserts2.png';
+import desserts3 from '../../assets/Images/DetailViewImg/desserts3.png';
+import desserts4 from '../../assets/Images/DetailViewImg/desserts4.png';
+import desserts5 from '../../assets/Images/DetailViewImg/desserts5.png';
+import lapinoz1 from '../../assets/Images/DetailViewImg/lapinoz1.jpg';
+import lapinoz2 from '../../assets/Images/DetailViewImg/lapinoz2.jpg';
+import lapinoz3 from '../../assets/Images/DetailViewImg/lapinoz3.jpg';
+import sides1 from '../../assets/Images/DetailViewImg/sides1.jpg';
+import sides2 from '../../assets/Images/DetailViewImg/sides2.jpg';
+import sides3 from '../../assets/Images/DetailViewImg/sides3.jpg';
+import lasagna1 from '../../assets/Images/DetailViewImg/lasagna1.jpg';
+import lasagna2 from '../../assets/Images/DetailViewImg/lasagna2.jpg';
+import lasagna3 from '../../assets/Images/DetailViewImg/lasagna3.jpg';
+
+import starbucks1 from '../../assets/Images/DetailViewImg/starbuck1.jpg';
+import starbucks2 from '../../assets/Images/DetailViewImg/starbuck2.jpg';
+import starbucks3 from '../../assets/Images/DetailViewImg/starbuck3.jpg';
+import starbucks4 from '../../assets/Images/DetailViewImg/starbuck4.jpg';
+import starbucks5 from '../../assets/Images/DetailViewImg/starbuck5.jpg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, decrementQuantity, incrementQuantity } from '../../Redux/features/cartSlice';
 import { RootState } from '../../Redux/store/store';
+import { useParams } from 'react-router';
 
 const OrderOnline = () => {
     const dispatch = useDispatch();
 
-    const allItems = [
-        { id: 1, name: 'Margherita Pizza', price: 140, quantity: 1, category: 'Pizzas' },
-        { id: 2, name: 'Double Cheese Margherita Pizza', price: 150, quantity: 1, category: 'Pizzas' },
-        { id: 3, name: 'Garden Delight Pizza', price: 160, quantity: 1, category: 'Pizzas' },
-        { id: 4, name: 'Lovers Bite Pizza', price: 170, quantity: 1, category: 'Pizzas' },
-        { id: 5, name: 'Garlic Bread', price: 50, quantity: 1, category: 'Garlic Breads' },
-        { id: 6, name: 'Cheese Garlic Bread', price: 60, quantity: 1, category: 'Garlic Breads' },
-        { id: 7, name: 'Classic Lasagna', price: 200, quantity: 1, category: 'Lasagna' },
-        { id: 8, name: 'Chocolate Cake', price: 120, quantity: 1, category: 'Desserts' },
-    ];
+    interface AllItems {
+
+        name: string,
+        image: string,
+        description: string,
+        price: number,
+        quantity: number,
+        category: string
+    }
+
+    type category = 'Recommended' | 'RecommendedPizza';
+
+    const [items, setItems] = useState<AllItems[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<category>('Recommended'); // State for selected category
+
+
+    const allItems: { [key: number]: AllItems[] } = {
+        1: [
+            { name: 'Big Mac®', image: burger1, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 140, quantity: 1, category: 'Burgers' },
+            { name: 'Quarter Pounder®* with Cheese', image: burger2, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 150, quantity: 1, category: 'Burgers' },
+            { name: 'Double Quarter Pounder®* with Cheese', image: burger3, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Burgers' },
+            { name: 'Quarter Pounder®* with Cheese Deluxe', image: burger4, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Burgers' },
+            { name: 'Double Cheeseburger', image: burger5, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Burgers' },
+            { name: 'Chocolate Overload McFlurry with Oreo Small', image: desserts1, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 140, quantity: 1, category: 'Recommended' },
+            { name: 'MangoBurst McFlurry with Oreo (M)', image: desserts2, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 150, quantity: 1, category: 'RecommendedPizza' },
+            { name: 'Hot Fudge Sundae', image: desserts3, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'RecommendedPizza' },
+            { name: 'McFlurry Oreo ( M )', image: desserts4, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'RecommendedPizza' },
+            { name: 'Strawberry Sundae', image: desserts5, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'RecommendedPizza' },
+            { name: 'McCrispy™', image: burger1, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 140, quantity: 1, category: 'Chicken' },
+            { name: 'Deluxe McCrispy™', image: burger1, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 150, quantity: 1, category: 'Chicken' },
+            { name: 'Spicy McCrispy™', image: burger1, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Chicken' },
+            { name: 'Spicy Deluxe McCrispy™', image: burger1, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Chicken' },
+            { name: 'McChicken®', image: burger1, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Chicken' },
+            { name: 'Chocolate Overload McFlurry with Oreo Small', image: desserts1, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 140, quantity: 1, category: 'Desserts' },
+            { name: 'MangoBurst McFlurry with Oreo (M)', image: desserts2, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', price: 150, quantity: 1, category: 'Desserts' },
+            { name: 'Hot Fudge Sundae', image: desserts3, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Desserts' },
+            { name: 'McFlurry Oreo ( M )', image: desserts4, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Desserts' },
+            { name: 'Strawberry Sundae', image: desserts5, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Desserts' },
+            { name: 'Tomatoes Pizza', image: lapinoz1, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Pizzas' },
+            { name: 'Onions Pizza', image: lapinoz2, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Pizzas' },
+            { name: 'Sweet Corns Pizza', image: lapinoz3, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Pizzas' },
+            { name: 'Plain Garlic Bread', image: sides1, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Sides' },
+            { name: 'Cheesy Garlic Bread', image: sides2, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Sides' },
+            { name: 'Paneer Tikka Garlic Bread', image: sides3, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Sides' },
+            { name: 'Veg Lasagna - Rosy Red', image: lasagna1, price: 160, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Lasagna' },
+            { name: 'Veg Lasagna - Pesto', image: lasagna2, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Lasagna' },
+            { name: 'Veg Lasagna - Creamy White', image: lasagna3, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Lasagna' },
+            { name: 'Pink Drink', image: starbucks5, price: 160, description: 'A vibrant mix of strawberry açaí and coconut flavors, bursti...', quantity: 1, category: 'ColdBrew' },
+            { name: 'Caramel Macchiato', image: starbucks2, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'HotCoffee' },
+            { name: 'Butter Croissant', image: starbucks1, price: 170, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Bakery' },
+            { name: 'Java Chip Frappuccino', image: starbucks3, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Frappuccino' },
+            { name: 'Strawberry Açaí Refresher', image: starbucks4, price: 50, description: 'Crispy chicken patty with lettuce, tomato, and creamy mayo on a toasted bun.', quantity: 1, category: 'Refreshers' },
+        ],
+    }
 
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState('Recommended'); // Default category
 
     const handleListItemClick = (index: number, category: string) => {
         setSelectedIndex(index);
-        setSelectedCategory(category); // Set the selected category based on click
+
     };
 
-    const recommendedItems = [
-        { name: 'Recommended', category: 'Recommended' },
-        { name: 'Pizzas (50)', category: 'Pizzas' },
-        { name: 'Classic Pizzas For Classic Maniacs (10)', category: 'Pizzas' },
-        { name: 'Garlic Breads (7)', category: 'Garlic Breads' },
-        { name: 'Lasagna (3)', category: 'Lasagna' },
-        { name: 'Desserts (2)', category: 'Desserts' },
-    ];
 
-    const recommendedImages = [headerItem1, headerItem2, headerItem3]; // Add images here
+
+    const { id } = useParams<{ id: string }>();
+
+    interface RecommendedItems {
+        id: number,
+        name: string,
+        category: string
+    }
+
+    const [recommendedItems, setRecommendedItems] = useState<RecommendedItems[]>([]);
+
+    const recommendedItemsById: { [key: number]: RecommendedItems[] } = {
+        1: [
+            { id: 1, name: 'Recommended', category: 'RecommendedPizza' },
+            { id: 2, name: 'Pizzas (50)', category: 'Pizzas' },
+            { id: 3, name: 'Classic Pizzas For Classic Maniacs (10)', category: 'Pizzas' },
+            { id: 4, name: 'Lasagna', category: 'Lasagna' },
+            { id: 5, name: 'Sides (3)', category: 'Sides' },
+            { id: 6, name: 'Desserts (2)', category: 'Desserts' },
+        ],
+
+        2: [
+            { id: 1, name: 'Recommended', category: 'Recommended' },
+            { id: 2, name: 'Burgers (2)', category: 'Burgers' },
+            { id: 3, name: 'Chicken (2)', category: 'Chicken' },
+            { id: 4, name: 'Breakfast (1)', category: 'Breakfast' },
+            { id: 5, name: 'Sides (3)', category: 'Sides' },
+            { id: 6, name: 'Desserts (1)', category: 'Desserts' },
+        ],
+        3: [
+            { id: 1, name: 'Recommended', category: 'Recommended' },
+            { id: 2, name: 'Hot Coffee (1)', category: 'HotCoffee' },
+            { id: 3, name: 'Cold Brew (1)', category: 'ColdBrew' },
+            { id: 4, name: 'Bakery (1)', category: 'Bakery' },
+            { id: 5, name: 'Refreshers (1)', category: 'Refreshers' },
+            { id: 6, name: 'Frappuccino (1)', category: 'Frappuccino' },
+        ],
+
+        4: [
+            { id: 1, name: 'Recommended', category: 'Recommended' },
+            { id: 2, name: 'Cheeseburger', category: 'Burgers' },
+            { id: 3, name: 'Fries', category: 'Sides' },
+            { id: 4, name: 'Classic Pizzas For Classic Maniacs (10)', category: 'Pizzas' },
+            { id: 5, name: 'Iced Tea', category: 'Drinks' },
+        ],
+
+        5: [
+            { id: 1, name: 'Recommended', category: 'Recommended' },
+            { id: 2, name: 'Veggie Pizza', category: 'Pizzas' },
+            { id: 3, name: 'Caesar Salad', category: 'Salads' },
+            { id: 4, name: 'Classic Pizzas For Classic Maniacs (10)', category: 'Pizzas' },
+            { id: 5, name: 'Lemonade', category: 'Drinks' },
+        ],
+        6: [
+            { id: 1, name: 'Recommended', category: 'Recommended' },
+            { id: 2, name: 'Spaghetti', category: 'Pastas' },
+            { id: 3, name: 'Classic Pizzas For Classic Maniacs (10)', category: 'Pizzas' },
+            { id: 4, name: 'Garlic Breadsticks', category: 'Sides' },
+            { id: 5, name: 'Ice Cream', category: 'Desserts' },
+        ],
+    };
+
+    useEffect(() => {
+        const brandId = parseInt(id);
+        if (recommendedItemsById[brandId]) {
+            setRecommendedItems(recommendedItemsById[brandId]);
+        } else {
+            setRecommendedItems([]);
+        }
+
+
+        // Set all items based on brandId
+        if (allItems[brandId]) {
+            setItems(allItems[brandId]);
+        } else {
+            setItems([]);
+        }
+
+    }, [id]);
+
+
+    // Handle category selection
+    const handleCategoryClick = (category: string) => {
+        setSelectedCategory(category);
+    };
+
+    // Filter items based on selected category
+    const filteredItems = Object.values(allItems).flat().filter(item => item.category === selectedCategory);
+
+
+
 
     const itemsInCart = useSelector((state: RootState) => state.cart.items);
 
@@ -54,8 +211,7 @@ const OrderOnline = () => {
         dispatch(decrementQuantity(id)); // Decrement quantity of item in cart
     };
 
-    // Filter the items based on selected category
-    const filteredItems = allItems.filter(item => selectedCategory === 'Recommended' || item.category === selectedCategory);
+
 
     return (
         <>
@@ -77,8 +233,12 @@ const OrderOnline = () => {
                         <ListItemButton
                             key={index}
                             selected={selectedIndex === index}
-                            onClick={() => handleListItemClick(index, item.category)}
+                            onClick={() => handleCategoryClick(item.category)}
                             sx={{
+                                minWidth: {
+                                    xs: 200,
+                                    lg: 300
+                                },
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 padding: 2,
@@ -147,7 +307,7 @@ const OrderOnline = () => {
                                     <Box
                                         component="img"
                                         padding={2}
-                                        src={recommendedImages[idx % recommendedImages.length]} // Loop through the images
+                                        src={item.image} // Loop through the images
                                         sx={{
                                             borderRadius: '10px',
                                             height: { sm: '150px', md: '190px', lg: '200px' },
@@ -184,7 +344,7 @@ const OrderOnline = () => {
                                                 color: '#848484',
                                             }}
                                         >
-                                            A Classic Cheesy Margharita. Can't Go Wrong.
+                                            {item.description}
                                         </Typography>
                                         <Typography
                                             sx={{

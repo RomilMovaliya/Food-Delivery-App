@@ -1,8 +1,8 @@
-import { AppBar, Badge, Box, Icon, Toolbar, Typography } from '@mui/material'
+import { AppBar, Badge, Box, Toolbar, Typography } from '@mui/material'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import { NavLink } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router';
 import { AccountCircle } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
 
 
     // Set colors based on the current route
-    const isCategoriesPage = location.pathname === '/categories' || location.pathname === '/detailView' || location.pathname === '/cart' || location.pathname === '/profile';
+    const isCategoriesPage = location.pathname === '/categories' || location.pathname.startsWith('/detailView') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/restaurant/') || location.pathname === '/cart' || location.pathname === '/profile' || location.pathname === '/detailView/:id';
     const manuColor = isCategoriesPage ? '#FFC300' : 'white';
     const ProfileColor = isCategoriesPage ? '#FFC300' : 'white';
     const navLinkColor = isCategoriesPage ? '#FFC300' : '#FFC300';

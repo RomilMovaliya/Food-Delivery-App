@@ -1,22 +1,189 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import brand1 from '../../assets/Images/CategoriesImg/brand1.png';
+import brand2 from '../../assets/Images/CategoriesImg/brand2.png';
+import brand3 from '../../assets/Images/CategoriesImg/brand3.png';
+import brand4 from '../../assets/Images/CategoriesImg/brand4.png';
+import brand5 from '../../assets/Images/CategoriesImg/brand5.png';
+import brand6 from '../../assets/Images/CategoriesImg/brand6.png';
 import { Box, Button, Stack, Typography } from '@mui/material'
+import { useParams } from 'react-router';
 
-const HeroSection = () => {
+
+interface ItemDetailType {
+    id: number,
+    image: string,
+    name: string,
+    item: string,
+    cost: string,
+    area: string,
+    time: string
+}
+
+
+const HeroSection: React.FC = () => {
+
+
+
+    const { id } = useParams<{ id: string }>();
+
+
+
+    interface BrandImg {
+        id: number,
+        image: string,
+
+    }
+
+    const [selectedBrandImg, setSelectedBrandImg] = useState<BrandImg | null>(null);
+
+    const brandImg: BrandImg[] = [
+        {
+            id: 1,
+            image: brand1,
+        },
+
+        {
+            id: 2,
+            image: brand2,
+        },
+
+        {
+            id: 3,
+            image: brand4,
+        },
+
+        {
+            id: 4,
+            image: brand3,
+        },
+
+        {
+            id: 5,
+            image: brand5,
+        },
+
+        {
+            id: 6,
+            image: brand6,
+        }
+
+
+    ];
+
+
+    useEffect(() => {
+        const barndId = parseInt(id);
+        const brand = brandImg.find((item) => barndId === item.id);
+        setSelectedBrandImg(brand || null);
+    }, [id]);
+
+
 
     const [selectedIndex, setSelectedIndex] = useState(0);  // Initialize as null to have no button selected initially
+    const [selectedBrand, setSelectedBrand] = useState<ItemDetailType | null>(null);
+
 
     const handleButtonClick = (index) => {
         setSelectedIndex(index);  // Set the selected index when a button is clicked
+    }
+
+    const ItemDetail: ItemDetailType[] = [
+        {
+            id: 1,
+            image: brand1,
+            name: `La Pino'z Pizza`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `700rs per 2 person`,
+            area: `Vesu, Surat`,
+            time: `11am - 11pm`
+        },
+
+        {
+            id: 2,
+            image: brand2,
+            name: `McDonald's`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `600rs per 2 person`,
+            area: `adajan, Surat`,
+            time: `10am - 11pm`
+        },
+
+        {
+            id: 3,
+            image: brand3,
+            name: `Starbucks`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `500rs per 2 person`,
+            area: `varracha, Surat`,
+            time: `10am - 9pm`
+        },
+
+        {
+            id: 4,
+            image: brand4,
+            name: `Burger King`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `500rs per 2 person`,
+            area: `yogichok, Surat`,
+            time: `11am - 8pm`
+        },
+
+        {
+            id: 5,
+            image: brand5,
+            name: `KFC`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `500rs per 2 person`,
+            area: `varracha, Surat`,
+            time: `10am - 11pm`
+        },
+
+        {
+            id: 6,
+            image: brand6,
+            name: `Coffee Culture`,
+            item: `Pizza, Fast Food, Beverages`,
+            cost: `500rs per 2 person`,
+            area: `parvat patiya, Surat`,
+            time: `10am - 12pm`
+        }
+    ];
+
+    const isOpenNow = () => {
+        const currentTime = new Date();
+        const openingTime = new Date();
+        const closingTime = new Date();
+
+        const [openingHour, openingMinute] = selectedBrand?.time.split(' - ')[0].split('am')[0].split(':').map(Number) || [0, 0];
+        const [closingHour, closingMinute] = selectedBrand?.time.split(' - ')[1].split('pm')[0].split(':').map(Number) || [0, 0];
+
+        openingTime.setHours(openingHour, openingMinute);
+        closingTime.setHours(closingHour + 12, closingMinute);
+
+
+        return currentTime >= openingTime && currentTime <= closingTime;
+    };
+
+
+    useEffect(() => {
+        const barndId = parseInt(id);
+        const brand = ItemDetail.find((item) => barndId === item.id);
+        setSelectedBrand(brand || null);
+    }, [id]);
+
+
+    if (!selectedBrand) {
+        return <Typography>No any Brand Found.</Typography>
     }
 
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'center', margin: '30px' }}>
                 <Stack direction={'row'} alignItems={'center'}>
-                    <Box component='img' src={brand1} sx={{
-                        height: '200px',
-                        width: '200px',
+                    <Box component='img' src={selectedBrandImg?.image} sx={{
+                        height: '180px',
+                        width: '180px',
+                        padding: '10px',
                         '@media (max-width:600px)': {
                             height: '100px',
                             width: '100px',
@@ -24,25 +191,36 @@ const HeroSection = () => {
                     }} />
                     <Box>
                         <Typography>
-                            La Pino'z Pizza
+                            {selectedBrand.name}
                         </Typography>
-                        <Typography>
-                            Pizza, Fast Food, Beverages
+                        <Typography color='#999999'>
+                            {selectedBrand.item}
+
                         </Typography>
-                        <Typography>
-                            Average Cost: 700rs per 2 person
-                        </Typography>
-                        <Typography>
-                            Vesu, Surat
+                        <Stack direction={'row'}>
+                            <Typography color='#999999'>
+                                Average Cost:
+                            </Typography>
+
+                            <Typography ml={1}>
+                                {selectedBrand.cost}
+                            </Typography>
+                        </Stack>
+
+                        <Typography color='#999999'>
+                            {selectedBrand.area}
+
                         </Typography>
 
                         <Typography >
-                            <Stack direction={'row'}>
-                                <Box color='red'>Open now </Box> 11am - 11pm (Today)
+                            <Stack direction={'row'} spacing={2}>
+
+                                <Box color='red'>{(!isOpenNow) ? 'Close Now' : 'Open Now'}</Box> <Box color='#999999'>{selectedBrand.time} (Today)</Box>
                             </Stack>
                         </Typography>
 
                         <Stack direction={'row'}
+                            mt={1}
                             spacing={{
                                 md: 2,
                                 lg: 2,

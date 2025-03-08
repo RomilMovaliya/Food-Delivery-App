@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import DetailView from './components/detailViewPage/detailView';
 import CartItem from './components/CartPage/CartItem';
 import LoginPage from './components/Authentication/LoginPage';
+import FoodItem from './components/categoriesPage/FoodItem';
+import Restaurants from './components/HomePage/Restaurants';
 
 function App() {
   const [navbarColor, setNavbarColor] = useState('transparent'); // Default color
@@ -21,8 +23,10 @@ function App() {
         <Hero />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/restaurant/:id" element={<Restaurants />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/detailView" element={<DetailView />} />
+          <Route path="/detailView/:id" element={<DetailView />} />
+          <Route path="/categories/:id" element={<FoodItem />} />
           <Route path="/cart" element={<CartItem />} />
           <Route path="/profile" element={<LoginPage />} />
         </Routes>

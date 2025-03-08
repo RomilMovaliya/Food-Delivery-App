@@ -1,5 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material'
 import menu1 from '../../assets/Images/DetailViewImg/menu1.jpg'
+import mcdMenu from '../../assets/Images/DetailViewImg/mcdManu.jpg'
 const Menu = () => {
     return (
         <>
@@ -24,7 +25,7 @@ const Menu = () => {
                     <Box sx={{ textAlign: 'center' }}>
                         <Box
                             component="img"
-                            src={menu1}
+                            src={mcdMenu}
                             height="250px"
                             width="200px"
                             sx={{ borderRadius: '15px' }}

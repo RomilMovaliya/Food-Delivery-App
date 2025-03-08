@@ -1,16 +1,62 @@
 import { Box, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import brand1 from '../../assets/Images/CategoriesImg/brand1.png';
 import brand2 from '../../assets/Images/CategoriesImg/brand2.png';
 import brand3 from '../../assets/Images/CategoriesImg/brand3.png';
 import brand4 from '../../assets/Images/CategoriesImg/brand4.png';
 import brand5 from '../../assets/Images/CategoriesImg/brand5.png';
 import brand6 from '../../assets/Images/CategoriesImg/brand6.png';
-import { Navigate, useNavigate } from 'react-router';
-import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+
+interface Brand {
+    id: number,
+    name: string,
+    image: string
+}
 
 
 const TopBrands: React.FC = () => {
+
+
+    const topBrandsdetail: Brand[] = [
+        {
+            id: 1,
+            name: `La Pino'z Pizza`,
+            image: brand1
+        },
+
+        {
+            id: 2,
+            name: `McDonald's`,
+            image: brand2
+        },
+
+        {
+            id: 3,
+            name: `Starbucks`,
+            image: brand4
+        },
+
+        {
+            id: 4,
+            name: `Burger King`,
+            image: brand3
+        },
+
+
+        {
+            id: 5,
+            name: `KFC`,
+            image: brand5
+        },
+
+
+        {
+            id: 6,
+            name: `Coffee Culture`,
+            image: brand6
+        },
+    ];
 
 
     return (
@@ -32,149 +78,39 @@ const TopBrands: React.FC = () => {
                         paddingBottom: 2, // Optional: Adds padding at the bottom if scroll is visible
                     }}
                 >
-                    {/* Brand Item 1 */}
-                    <Box sx={{
-                        // border: '2px solid yellow',
-
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }}>
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand1} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            La Pino'z Pizza
-                        </Typography>
-                    </Box>
-
-                    {/* Brand Item 2 */}
-                    <Box sx={{
-
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }} >
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand2} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            McDonald's
-                        </Typography>
-                    </Box>
-
-                    {/* Brand Item 3 */}
-                    <Box sx={{
-
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }}>
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand3} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            Starbucks
-                        </Typography>
-                    </Box>
-
-                    {/* Brand Item 4 */}
-                    <Box sx={{
-
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }}>
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand4} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            Burger King
-                        </Typography>
-                    </Box>
-
-                    {/* Brand Item 5 */}
-                    <Box sx={{
-
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }} >
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand5} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            KFC
-                        </Typography>
-                    </Box>
 
 
+                    {topBrandsdetail.map(brand => (
 
-                    {/* Brand Item 6 */}
-                    <Box sx={{
+                        <Link key={brand.id} to={`/detailView/${brand.id}`} style={{ textDecoration: 'none', color: 'black' }} >
+                            < Box sx={{
+                                // border: '2px solid yellow',
 
-                        width: '200px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '200px',
-                        cursor: 'pointer',
-                    }} >
-                        <Box component='img' sx={{
-                            height: '140px',
-                            width: '140px',
-                            paddingTop: '2px'
-                        }} src={brand6} />
-                        <Typography fontWeight={700} sx={{
-                            paddingTop: '40px',
-                        }}>
-                            KFC
-                        </Typography>
-                    </Box>
+                                width: '200px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                height: '200px',
+                                cursor: 'pointer',
+                            }}>
+                                <Box component='img' sx={{
+                                    height: '140px',
+                                    width: '140px',
+                                    paddingTop: '2px'
+                                }} src={brand.image} />
+                                <Typography fontWeight={700} sx={{
+                                    paddingTop: '40px',
+                                }}>
+                                    {brand.name}
+                                </Typography>
+                            </Box>
+                        </Link>
+                    ))}
+
                 </Box>
 
-            </Box>
+            </Box >
         </>
     );
 }

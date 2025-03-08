@@ -5,8 +5,39 @@ import cuisineImg3 from '../../assets/Images/cuisineImg3.jpg'
 import dish1 from '../../assets/Images/dish1.jpg'
 import dish2 from '../../assets/Images/dish2.jpg'
 import dish3 from '../../assets/Images/dish3.jpg'
+import { Link } from 'react-router-dom';
+
+
+interface RestaurantsData {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+}
 
 const CuisineList: React.FC = () => {
+
+
+  const restaurantsData: RestaurantsData[] = [
+    {
+      id: 1,
+      name: 'Order Online',
+      image: cuisineImg1,
+      description: 'Get your favourite food delivered to your doorstep'
+    },
+    {
+      id: 2,
+      name: 'Dinning Out',
+      image: cuisineImg2,
+      description: 'dine out at your favourite restaurant'
+    },
+    {
+      id: 3,
+      name: 'Nightlife and Clubs',
+      image: cuisineImg3,
+      description: 'enjoy the nightlife and clubs with your friends'
+    }
+  ];
   return (
     <>
       <section id="items">
@@ -14,7 +45,7 @@ const CuisineList: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           marginTop: '25px',
-          marginInline: '20px'
+          marginInline: '50px'
         }}>
           <Box
             sx={{
@@ -23,7 +54,7 @@ const CuisineList: React.FC = () => {
                 xs: '10px',
                 sm: '20px',
                 md: '30px',
-                lg: '50px'
+                lg: '40px'
               },
               padding: {
                 xs: '10px',
@@ -41,136 +72,63 @@ const CuisineList: React.FC = () => {
 
             }}
           >
-            {/* Card 1 */}
-            <Box
-              className="box"
-              sx={{
-                height: {
-                  xs: '200px',
-                  sm: '160px',
-                  md: '210px',
-                  lg: '280px'
-                },
 
-                borderRadius: '12px',
-                textAlign: 'center',
-                boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.2)',
+            {restaurantsData.map((restaurant) => (
+              <Box
+                key={restaurant.id}
+                className="box"
+                sx={{
+                  width: {
+                    xs: '300px',
+                    sm: '250px',
+                    md: '300px',
+                    lg: '400px'
+                  },
+                  height: {
+                    xs: '200px',
+                    sm: '160px',
+                    md: '210px',
+                    lg: '280px'
+                  },
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    transition: 'transform 0.5s',
+                  },
+                  borderRadius: '32px',
+                  textAlign: 'center',
+                  boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                <Link key={restaurant.id} to={`/restaurant/${restaurant.id}`} style={{ textDecoration: 'none' }} >
 
-              }}
-            >
-              <Card>
-                <CardMedia
-                  component="img"
-                  height="190px"
-                  image={cuisineImg1}
-                  alt="Dinning Out 1"
-                  sx={{
-                    height: {
-                      xs: '110px',
-                      sm: '105px',
-                      md: '125px',
-                      lg: '190px'
-                    },
-                    borderTopLeftRadius: '12px',
-                    borderTopRightRadius: '12px',
-                    objectFit: 'cover',
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      image={restaurant.image}
+                      alt={restaurant.name}
+                      sx={{
+                        height: {
+                          xs: '120px',
+                          sm: '95px',
+                          md: '135px',
+                          lg: '200px'
+                        },
+                        borderTopLeftRadius: '12px',
+                        borderTopRightRadius: '12px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    <CardContent sx={{ padding: '5px 10px' }}>
+                      <Typography variant="h6">{restaurant.name}</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {restaurant.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </Box>
+            ))}
 
-                  }}
-                />
-                <CardContent sx={{ padding: '20px 10px' }}>
-                  <Typography variant="h6">Dinning Out</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Explore curated lists of top restaurants,
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            {/* Card 2 */}
-            <Box
-              className="box"
-              sx={{
-                height: {
-                  xs: '200px',
-                  sm: '160px',
-                  md: '210px',
-                  lg: '280px'
-                },
-                borderRadius: '12px',
-                textAlign: 'center',
-                boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.2)',
-
-              }}
-            >
-              <Card>
-                <CardMedia
-                  component="img"
-
-                  image={cuisineImg2}
-                  alt="Dinning Out 2"
-                  sx={{
-                    height: {
-                      xs: '110px',
-                      sm: '105px',
-                      md: '125px',
-                      lg: '190px'
-                    },
-                    borderTopLeftRadius: '12px',
-                    borderTopRightRadius: '12px',
-                    objectFit: 'cover',
-                  }}
-                />
-                <CardContent sx={{ padding: '20px 10px' }}>
-                  <Typography variant="h6">Dinning Out</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Explore curated lists of top restaurants,
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            {/* Card 3 */}
-            <Box
-              className="box"
-              sx={{
-                height: {
-                  xs: '200px',
-                  sm: '190px',
-                  md: '210px',
-                  lg: '280px'
-                },
-                borderRadius: '12px',
-                textAlign: 'center',
-                boxShadow: '0px 3px 3px rgba(0, 0, 0, 0.2)',
-
-              }}
-            >
-              <Card>
-                <CardMedia
-                  component="img"
-
-                  image={cuisineImg3}
-                  alt="Dinning Out 3"
-                  sx={{
-                    height: {
-                      xs: '110px',
-                      sm: '105px',
-                      md: '125px',
-                      lg: '190px'
-                    },
-                    borderTopLeftRadius: '12px',
-                    borderTopRightRadius: '12px',
-                    objectFit: 'cover',
-                  }}
-                />
-                <CardContent sx={{ padding: '20px 10px' }}>
-                  <Typography variant="h6">Dinning Out</Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Explore curated lists of top restaurants,
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
           </Box>
         </Box>
       </section>
@@ -178,13 +136,13 @@ const CuisineList: React.FC = () => {
 
 
 
-      <Box id="best-item" sx={{ marginInline: '124px', }}>
+      <Box id="best-item" sx={{ marginInline: '114px', }}>
         <Box className="best-item-content" sx={{
           marginTop: '50px', marginInline: {
             xs: '0px',
             sm: '10px',
             md: '25px',
-            lg: '124px'
+            lg: '34px'
           },
 
           //   '@media (max-width: 370px)': {
