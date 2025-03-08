@@ -179,14 +179,13 @@ const Restaurants = () => {
               boxShadow: '0 2px 8px 4px rgba(0,0,0,0.4)',
               cursor: 'pointer'
             },
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+
             backgroundColor: 'rgba(236, 238, 246, 1)'
           }}>
             <Link to={`/detailView/${restaurant.id}`} style={{
               textDecoration: 'none', color: 'black', display: 'flex',
+
+              fontFamily: 'Poppins',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
@@ -204,10 +203,11 @@ const Restaurants = () => {
               <Typography fontWeight={700} fontSize={20}>{restaurant.name}</Typography>
               <Stack direction={'row'} spacing={1} paddingBottom={2} sx={{
                 color: 'rgba(132, 132, 132, 1)',
-                alignItems: 'center'
+                alignItems: 'center',
+                fontFamily: 'Poppins',
               }}>
-                <Typography>{restaurant.location} - </Typography>
-                <Typography>{restaurant.price}</Typography>
+                <Typography fontFamily={'Poppins'}>{restaurant.location} - </Typography>
+                <Typography fontFamily={'Poppins'}>{restaurant.price}</Typography>
               </Stack>
 
               <Stack direction={'row'} spacing={1} padding={1}>

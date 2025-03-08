@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Container, Divider, Grid, Grid2, Stack, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Container, Stack, Typography } from '@mui/material';
 import cuisineImg1 from '../../assets/Images/cuisineImg1.jpg'
 import cuisineImg2 from '../../assets/Images/cuisineImg2.jpg'
 import cuisineImg3 from '../../assets/Images/cuisineImg3.jpg'
