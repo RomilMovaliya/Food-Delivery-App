@@ -89,13 +89,16 @@ const Home: React.FC = () => {
 
                                     '@media (max-width: 330px)': {
                                         width: '80%', // Make the search container full width on small screens
-
+                                        marginInline: '10px'
                                     },
 
-                                    // '@media (max-width: 410px)': {
-                                    //     width: '60%',
+                                    '@media (max-width: 410px)': {
+                                        flexDirection: 'column',
+                                        alignItems: 'stretch',
 
-                                    // },
+                                        marginLeft: '25px'
+                                    }
+
                                 }}
                             >
                                 <Select
@@ -113,6 +116,10 @@ const Home: React.FC = () => {
                                         '@media (max-width: 330px)': {
                                             width: '80px', // Adjust width for small screens
                                         },
+
+                                        '@media (max-width: 410px)': {
+                                            width: '100%'
+                                        }
                                     }}
                                 >
                                     <MenuItem value="Surat">Surat</MenuItem>
@@ -133,6 +140,11 @@ const Home: React.FC = () => {
                                         '@media (max-width: 330px)': {
                                             fontSize: '12px', // Smaller font size on smaller screens
                                         },
+
+                                        '@media (max-width: 410px)': {
+                                            marginInline: '0px',
+                                            width: '100%',
+                                        }
                                     }}
                                     InputProps={{
                                         startAdornment: (

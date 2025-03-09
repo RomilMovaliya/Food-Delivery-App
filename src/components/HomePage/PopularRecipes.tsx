@@ -1,132 +1,507 @@
-import { Box, Button, Tab, Tabs, Typography } from "@mui/material";
-import pizo2 from "../../assets/Images/pizo2.png"; // Ensure correct path
-import { ShoppingBag } from "@mui/icons-material";
-import React, { useState } from "react"; // Import useState for managing tabs
-import leftImg from '../../assets/Images/left-side.png';
-import rightImg from '../../assets/Images/right-side.png'; // Ensure correct import for left image
-import { yellow } from "@mui/material/colors";
+import { Box, Button, Typography } from "@mui/material";
+import { useState } from "react";
+import piz1 from '../../assets/Images/FoodCategoryImg/piz1.jpeg';
+import piz2 from '../../assets/Images/FoodCategoryImg/piz2.jpeg';
+import piz3 from '../../assets/Images/FoodCategoryImg/piz3.jpeg';
+import piz4 from '../../assets/Images/FoodCategoryImg/piz4.jpeg';
+import piz5 from '../../assets/Images/FoodCategoryImg/piz5.jpeg';
+import piz6 from '../../assets/Images/FoodCategoryImg/piz6.jpeg';
+import piz7 from '../../assets/Images/FoodCategoryImg/piz7.jpeg';
+import piz8 from '../../assets/Images/FoodCategoryImg/piz8.jpeg';
+import piz9 from '../../assets/Images/FoodCategoryImg/piz9.jpeg';
+import dessert1 from '../../assets/Images/DetailViewImg/desserts1.png';
+import dessert2 from '../../assets/Images/DetailViewImg/desserts2.png';
+import dessert3 from '../../assets/Images/DetailViewImg/desserts3.png';
+import dessert4 from '../../assets/Images/DetailViewImg/desserts4.png';
+import dessert5 from '../../assets/Images/DetailViewImg/desserts5.png';
+import sides1 from '../../assets/Images/FoodCategoryImg/sides1.jpeg';
+import sides2 from '../../assets/Images/FoodCategoryImg/sides2.jpeg';
+import sides3 from '../../assets/Images/FoodCategoryImg/sides3.jpeg';
+import sides4 from '../../assets/Images/FoodCategoryImg/sides4.jpeg';
+import sides5 from '../../assets/Images/FoodCategoryImg/sides5.jpeg';
+import sides6 from '../../assets/Images/FoodCategoryImg/sides6.jpeg';
+import sides7 from '../../assets/Images/FoodCategoryImg/sides7.jpeg';
+import bread1 from '../../assets/Images/FoodCategoryImg/bread1.jpeg';
+import bread2 from '../../assets/Images/FoodCategoryImg/bread2.jpeg';
+import bread3 from '../../assets/Images/FoodCategoryImg/bread3.webp';
+import bread4 from '../../assets/Images/FoodCategoryImg/bread4.jpeg';
+import bread5 from '../../assets/Images/FoodCategoryImg/bread5.jpeg';
+import bread6 from '../../assets/Images/FoodCategoryImg/bread6.jpeg';
+import bread7 from '../../assets/Images/FoodCategoryImg/bread7.jpeg';
+import burg1 from '../../assets/Images/FoodCategoryImg/burg1.jpeg';
+import burg2 from '../../assets/Images/FoodCategoryImg/burg2.jpeg';
+import burg3 from '../../assets/Images/FoodCategoryImg/burg3.jpeg';
+import burg4 from '../../assets/Images/FoodCategoryImg/burg4.jpeg';
+import burg5 from '../../assets/Images/FoodCategoryImg/burg5.jpeg';
+import burg6 from '../../assets/Images/FoodCategoryImg/burg6.jpeg';
 
-const PopularRecipes = () => {
+
+import leftImg from '../../assets/Images/left-side.png';
+import rightImg from '../../assets/Images/right-side.png';
+
+import { yellow } from "@mui/material/colors";
+import { ShoppingBag } from "@mui/icons-material";
+
+const PopularRecipes: React.FC = () => {
     // Define state for active tab
     const [value, setValue] = useState(0);
 
     // Handle tab change
     const handleTabChange = (newValue: number) => {
         setValue(newValue);
+        setSelectedCategory(buttonItem[newValue]); // Set the selected category when tab is changed
     };
 
-    const buttonItem = ["Pizza", "Sides", "Chicken", "Dessert", "Drinks"];
+    const buttonItem = ["Pizza", "Dessert", "Sides", "Garlic Breads", "Burgers"];
+
+    // Define a state for selected category
+    const [selectedCategory, setSelectedCategory] = useState("Pizza");
+
+
+
+    interface TabItems {
+        title: string;
+        time: string;
+        image: string;
+        description: string;
+        price: string;
+        category?: string;
+    }
+
+
+    const tabItems: TabItems[][] = [
+        [
+
+            {
+                image: piz1,
+                title: "Mushroom Delight",
+                time: "32 min",
+                description: "Fresh mushrooms with a hint of garlic and herbs.",
+                price: "₹190",
+                category: "Pizza"
+            },
+            {
+                image: piz2,
+                title: "Spicy Veggie Pizza",
+                time: "32 min",
+                description: "Spicy toppings with a generous layer of cheese.",
+                price: "₹200",
+                category: "Pizza"
+            },
+            {
+                image: piz3,
+                title: "Mexican Wave Pizza",
+                time: "32 min",
+                description: "Mexican-style pizza with jalapenos and spicy sauce.",
+                price: "₹240",
+                category: "Pizza"
+            },
+            {
+                image: piz4,
+                title: "Tandoori Paneer Pizza",
+                time: "35 min",
+                description: "Paneer marinated in tandoori spices, baked to perfection.",
+                price: "₹250",
+                category: "Pizza"
+            },
+            {
+                image: piz5,
+                title: "Classic Pepperoni",
+                time: "36 min",
+                description: "Classic pepperoni with a rich cheese topping.",
+                price: "₹250",
+                category: "Pizza"
+            },
+            {
+                image: piz6,
+                title: "Pepperoni Pizza",
+                time: "40 min",
+                description: "Pepperoni slices on a bed of gooey cheese.",
+                price: "₹220",
+                category: "Pizza"
+            },
+            {
+
+                image: piz7,
+                title: "Classic Hawaiian",
+                time: "10 min",
+                description: "Sweet pineapple and ham on a cheese pizza.",
+                price: "₹240",
+                category: "Pizza"
+            },
+            {
+                image: piz8,
+                title: "Classic Margherita",
+                time: "25 min",
+                description: "A timeless margherita for cheese lovers.",
+                price: "₹260",
+                category: "Pizza"
+            },
+
+            {
+                image: piz9,
+                title: "Veggie Supreme",
+                time: "32 mins",
+                description: "Loaded with bell peppers, onions, olives, and more.",
+                price: "₹180",
+                category: "Pizza"
+            },
+        ],
+        [
+            {
+                image: dessert1,
+                title: 'Chocolate Overload McFlurry with Oreo',
+                time: '10 min',
+                description: 'chocolate ice cream with Oreo cookies and hot fudge sauce.',
+                price: "₹140",
+                category: "Dessert"
+            },
+
+            {
+                image: dessert2,
+                title: 'MangoBurst McFlurry with Oreo Medium',
+                time: '15 min',
+                description: 'mango ice cream with Oreo cookies and hot fudge sauce.',
+                price: "₹150",
+                category: "Dessert"
+            },
+            {
+                image: dessert3,
+                title: 'Hot Fudge Sundae',
+                time: '10 min',
+                description: 'hot fudge sauce over creamy vanilla ice cream.',
+                price: "₹160",
+                category: "Dessert"
+            },
+
+            {
+                image: dessert4,
+                title: 'McFlurry Oreo Medium',
+                time: '10 min',
+                description: 'mcflurry with Oreo cookies and hot fudge sauce.',
+                price: "₹170",
+                category: "Dessert"
+            },
+            {
+                image: dessert5,
+                title: 'Strawberry Sundae',
+                time: '10 min',
+                description: 'Cstrawberry sauce over creamy vanilla ice cream.',
+                price: "₹50",
+                category: "Dessert"
+            }
+        ],
+
+        [
+            {
+                image: sides1,
+                title: 'Loaded Cheesy Fries',
+                time: '10 min',
+                description: 'Crispy fries topped with melted cheese sauce and bacon bits.',
+                price: "₹160",
+                category: "Sides"
+            },
+            {
+                image: sides2,
+                title: 'Cheesy Potato Wedges',
+                time: '10 min',
+                description: 'Crispy potato wedges topped with melted cheese sauce.',
+                price: "₹130",
+                category: "Sides"
+            },
+            {
+                image: sides3,
+                title: 'Creamy Mashed Potatoes',
+                time: '10 min',
+                description: 'Smooth, buttery mashed potatoes with signature gravy.',
+                price: "₹100",
+                category: "Sides"
+            },
+            {
+                image: sides4,
+                title: 'Onion Rings',
+                time: '10 min',
+                description: 'Crispy onion rings served with a tangy dipping sauce.',
+                price: "₹120",
+                category: "Sides"
+            },
+            {
+                image: sides5,
+                title: 'Corn on the Cob',
+                time: '10 min',
+                description: 'Freshly steamed corn on the cob, served with a buttery finish.',
+                price: "₹100",
+                category: "Sides"
+            },
+            {
+                image: sides6,
+                title: 'Sweet Potato Fries',
+                time: '10 min',
+                description: 'Crispy sweet potato fries, lightly seasoned and served with a dipping sauce.',
+                price: "₹90",
+                category: "Sides"
+            },
+            {
+                image: sides7,
+                title: 'Mashed Potato with Gravy',
+                time: '10 min',
+                description: 'Creamy mashed potatoes served with a rich, savory gravy.',
+                price: "₹120",
+                category: "Sides"
+            }
+        ],
+
+        [
+            {
+                image: bread1,
+                title: 'Stuffed Garlic Bread',
+                time: '10 min',
+                description: 'Garlic bread stuffed with mozzarella and herbs.',
+                price: "₹150",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread2,
+                title: 'Chili Garlic Bread',
+                time: '10 min',
+                description: 'Spicy chili and garlic spread over crispy bread.',
+                price: "₹150",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread3,
+                title: 'Garlic Cheese Sticks',
+                time: '10 min',
+                description: 'Cheesy sticks with a garlic twist.',
+                price: "₹130",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread4,
+                title: 'Herb Garlic Bread',
+                time: '10 min',
+                description: 'Garlic bread sprinkled with Italian herbs.',
+                price: "₹140",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread5,
+                title: 'Butter Garlic Bread',
+                time: '10 min',
+                description: 'Buttery garlic bread served warm.',
+                price: "₹100",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread6,
+                title: 'Cheese Garlic Bread',
+                time: '10 min',
+                description: 'Crispy garlic bread topped with melted cheese.',
+                price: "₹110",
+                category: "Garlic Breads"
+            },
+            {
+                image: bread7,
+                title: 'Plain Garlic Bread',
+                time: '10 min',
+                description: 'Classic garlic bread, perfect for dipping.',
+                price: "₹120",
+                category: "Garlic Breads"
+            }
+        ],
+
+
+        [
+            {
+                image: burg1,
+                title: 'Big Mac',
+                time: '10 min',
+                description: 'Iconic double-decker burger with special sauce, lettuce, cheese, pickles, and onions.',
+                price: "₹260",
+                category: "Burgers"
+            },
+            {
+                image: burg2,
+                title: 'Angry Whopper',
+                time: '10 min',
+                description: 'Flame-grilled beef patty topped with spicy jalapeños, onions, and a zesty sauce.',
+                price: "₹220",
+                category: "Burgers"
+            },
+            {
+                image: burg3,
+                title: 'Double Crunch Burger',
+                time: '10 min',
+                description: 'Double beef patties, crunchy pickles, cheese, lettuce, and a special sauce on a soft bun.',
+                price: "₹270",
+                category: "Burgers"
+            },
+            {
+                image: burg4,
+                title: 'Chicken Zinger Deluxe',
+                time: '10 min',
+                description: 'Spicy double-breaded chicken fillet with fresh lettuce, tomato, and mayo on a toasted bun.',
+                price: "₹240",
+                category: "Burgers"
+            },
+
+            {
+                image: burg5,
+                title: 'Plant-Based Rebel Whopper',
+                time: '10 min',
+                description: 'Plant-based patty with all the classic Whopper toppings.',
+                price: "₹230",
+                category: "Burgers"
+            },
+            {
+                image: burg6,
+                title: 'BBQ Bacon Whopper',
+                time: '10 min',
+                description: 'Flame-grilled beef patty topped with crispy bacon, smoky BBQ sauce, and fresh lettuce.',
+                price: "₹230",
+                category: "Burgers"
+            }
+        ]
+    ]
+
+
+
+    // Filter tabItems based on selectedCategory
+    const filteredTabItems = tabItems[value].filter((item) => item.category === selectedCategory);
 
     return (
-        <Box className="content" sx={{ position: 'relative', marginTop: '20px' }}>
-            {/* Recipe Cards Section */}
-            <Box sx={{
-                padding: {
-                    xs: '4rem',
-                    lg: '2rem'
-                }
+        <Box className="content" sx={{ position: 'relative', marginTop: '80px' }}>
+            {/* Title Section */}
+            <Typography fontFamily={'Poppins'} sx={{
+                fontSize: {
+                    lg: '2rem',
+                    xs: '20px',
+                    sm: '2rem',
+                    md: '2rem',
+                }, textAlign: "center", marginBottom: "1rem", fontWeight: 600
             }}>
-                {/* Title Section */}
-                <Typography variant="h4" sx={{ textAlign: "center", marginBottom: "1rem", fontWeight: 600 }}>
-                    Popular Recipes
-                </Typography>
+                Popular Recipes
+            </Typography>
 
-                {/* Left-side image */}
-                <Box
-                    sx={{
+            {/* left-side image */}
+            <Box
+                sx={{
 
-                        position: "absolute",
-                        height: {
-                            xs: '135px',
-                            sm: '140px',
-                            lg: '170px'
-                        }, // Adjust this to match the image height
-                        width: {
-                            xs: '80px',
-                            sm: '85px',
-                            lg: '100px'
-                        },  // Adjust this to match the image width
-                        top: '-40px',
-                        left: 0,
-                        background: `url(${leftImg}) no-repeat left top`,
-                        backgroundSize: 'cover', // Adjust background size as needed
-                    }}
-                />
-
-                {/* Right-side image */}
-                <Box
-                    sx={{
-
-                        position: "absolute",
-                        height: {
-                            xs: '135px',
-                            sm: '140px',
-                            lg: '170px'
-                        }, // Adjust this to match the image height
-                        width: {
-                            xs: '80px',
-                            sm: '85px',
-                            lg: '100px'
-                        },  // 
-                        top: '-60px',
-                        right: 0,
-                        background: `url(${rightImg}) no-repeat right top`, // Use the correct variable for the right image
-                        backgroundSize: 'cover',
-                    }}
-                />
+                    position: "absolute",
+                    height: {
+                        xs: '135px',
+                        sm: '140px',
+                        lg: '170px'
+                    }, // Adjust this to match the image height
+                    width: {
+                        xs: '80px',
+                        sm: '85px',
+                        lg: '100px'
+                    },  // 
 
 
+                }}
+            />
+            <Box
+                sx={{
 
-                {/* Tab Buttons */}
-                <Box sx={{
-                    display: 'grid',
-                    gridTemplateColumns: {
-                        xs: 'repeat(2, 1fr)',  // 2 columns on extra small screens
-                        sm: 'repeat(3, 1fr)',  // 3 columns on small screens
-                        md: 'repeat(5, 1fr)',  // 5 columns on medium and above
-                    },
-
-                    gap: '20px',
-                    marginInline: '60px',
-                    marginTop: '20px',
-                }}>
-                    {buttonItem.map((item, index) => (
-                        <Button
-                            key={index}
-                            onClick={() => handleTabChange(index)} // Handle tab change on click
-                            variant="contained"
-                            sx={{
-                                backgroundColor: value === index ? yellow[700] : '#ECEEF6',
-                                color: value === index ? 'white' : 'black',
-                                height: '50px',
-                                borderRadius: '30px',
-                                '&:hover': {
-                                    backgroundColor: value === index ? yellow[600] : '#D1D9E6',
-                                },
-                            }}
-                        >
-                            {item}  {/* Display the name from the array */}
-                        </Button>
-                    ))}
-                </Box>
+                    position: "absolute",
+                    height: {
+                        xs: '135px',
+                        sm: '140px',
+                        lg: '170px'
+                    }, // Adjust this to match the image height
+                    width: {
+                        xs: '80px',
+                        sm: '85px',
+                        lg: '100px'
+                    },  // Adjust this to match the image width
+                    top: '-60px',
+                    left: 0,
+                    background: `url(${leftImg}) no-repeat left top`,
+                    backgroundSize: 'cover', // Adjust background size as needed
+                }}
+            />
 
 
+            {/* Right-side image */}
+            <Box
+                sx={{
 
+                    position: "absolute",
+                    height: {
+                        xs: '135px',
+                        sm: '140px',
+                        lg: '170px'
+                    }, // Adjust this to match the image height
+                    width: {
+                        xs: '80px',
+                        sm: '85px',
+                        lg: '100px'
+                    },  // 
+                    top: '-90px',
+                    right: 0,
+                    background: `url(${rightImg}) no-repeat right top`, // Use the correct variable for the right image
+                    backgroundSize: 'cover',
+                }}
+            />
 
-                {/* Horizontal Scrollable Recipe Cards */}
-                <Box sx={{
-                    marginTop: '30px',
-                    display: "flex",
-                    overflowX: "auto",
-                    gap: "1.5rem",
-                    paddingBottom: "1rem",
-                    scrollbarWidth: "thin",
-                    scrollbarColor: "#888 transparent",
-                    "&::-webkit-scrollbar": { height: "8px" },
-                    "&::-webkit-scrollbar-thumb": { backgroundColor: "#888", borderRadius: "10px" },
-                    "&::-webkit-scrollbar-track": { backgroundColor: "transparent" },
-                }}>
-                    {[...Array(6)].map((_, index) => (
+            {/* Tab Buttons */}
+            <Box sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: 'repeat(2, 1fr)',  // 2 columns on extra small screens
+                    sm: 'repeat(3, 1fr)',  // 3 columns on small screens
+                    md: 'repeat(5, 1fr)',  // 5 columns on medium and above
+                },
+                gap: '20px',
+                marginInline: '90px',
+                marginTop: '70px',
+            }}>
+                {buttonItem.map((item, index) => (
+                    <Button
+
+                        key={index}
+                        onClick={() => handleTabChange(index)}  // Handle tab change and set category
+                        variant="contained"
+                        sx={{
+                            fontfamily: "Poppins",
+                            fontWeight: 600,
+                            backgroundColor: value === index ? yellow[700] : '#ECEEF6',
+                            color: value === index ? 'white' : 'black',
+                            height: '50px',
+                            borderRadius: '30px',
+                            '&:hover': {
+                                backgroundColor: value === index ? yellow[600] : '#D1D9E6',
+                            },
+                        }}
+                    >
+                        {item}  {/* Display the name from the array */}
+                    </Button>
+                ))}
+            </Box>
+
+            {/* Horizontal Scrollable Recipe Cards */}
+            <Box sx={{
+                marginTop: '30px',
+                display: "flex",
+                overflowX: "auto",
+                gap: "1.5rem",
+                marginInline: "3rem",
+                paddingBottom: "3rem",
+                scrollbarWidth: "thin",
+                scrollbarColor: "#888 transparent",
+                "&::-webkit-scrollbar": { height: "8px", appearance: 'none' },
+                "&::-webkit-scrollbar-thumb": { backgroundColor: "#888", borderRadius: "10px" },
+                "&::-webkit-scrollbar-track": { backgroundColor: "transparent" },
+            }}>
+
+                {filteredTabItems.length === 0 ? (
+                    <Typography variant="h6" sx={{ textAlign: "center", width: "100%" }}>
+                        No items found
+                    </Typography>
+                ) :
+                    (filteredTabItems.map((tabItem, index) => (
                         <Box key={index} className="card1" sx={{
                             flex: "0 0 250px", // Fixed width for horizontal scrolling
                             padding: "2rem 1rem",
@@ -139,27 +514,28 @@ const PopularRecipes = () => {
                             borderRadius: "1rem",
                             maxWidth: "300px",
                         }}>
-                            <Box component="img" className="item-image" src={pizo2} alt="" sx={{
+                            <Box component="img" className="item-image" src={tabItem.image} alt="" sx={{
                                 height: "8rem",
                                 width: "8rem",
-                                marginBottom: "2rem",
+                                borderRadius: "1rem",
+                                marginBottom: "1rem",
                                 objectFit: "cover"
                             }} />
                             <Box className="title-and-time" sx={{
                                 width: "100%",
                                 display: "flex",
-                                justifyContent: "space-between",
+                                justifyContent: "center",
                                 alignItems: "center"
                             }}>
-                                <Typography variant="h6" className="item">Eatalian Pizza</Typography>
-                                <Typography className="light-text">32mins</Typography>
+                                <Typography variant="h6" className="item">{tabItem.title}</Typography>
                             </Box>
                             <Typography className="description light-text" sx={{
-                                alignSelf: "flex-start",
+
+                                textAlign: "center",
                                 marginBottom: "2rem",
                                 fontSize: "14px"
-                            }}>Dough, Mozzarella, Cheddar, Blue, Parmesan</Typography>
-                            <Typography className="price" fontSize={20} fontWeight={500}>5000NGN</Typography>
+                            }}>{tabItem.description}</Typography>
+                            <Typography className="price" fontSize={20} fontWeight={500}>{tabItem.price}</Typography>
 
                             <Box className="triangle" sx={{
                                 position: "absolute",
@@ -183,7 +559,6 @@ const PopularRecipes = () => {
                                     padding: "0.4rem",
                                     borderRadius: "50%",
                                     background: "#F6B716",
-
                                 }}>
                                     <ShoppingBag sx={{
                                         fontSize: "1rem", // Set the size of the icon
@@ -192,10 +567,9 @@ const PopularRecipes = () => {
                                 </Box>
                             </Box>
                         </Box>
-                    ))}
-                </Box>
+                    )))}
             </Box>
-        </Box >
+        </Box>
     );
 };
 
