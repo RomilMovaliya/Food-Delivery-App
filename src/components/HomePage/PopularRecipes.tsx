@@ -489,9 +489,9 @@ const PopularRecipes: React.FC = () => {
                 gap: "1.5rem",
                 marginInline: "3rem",
                 paddingBottom: "3rem",
-                scrollbarWidth: "thin",
+                scrollbarWidth: "none",
                 scrollbarColor: "#888 transparent",
-                "&::-webkit-scrollbar": { height: "8px", appearance: 'none' },
+                "&::-webkit-scrollbar": { height: "8px" },
                 "&::-webkit-scrollbar-thumb": { backgroundColor: "#888", borderRadius: "10px" },
                 "&::-webkit-scrollbar-track": { backgroundColor: "transparent" },
             }}>

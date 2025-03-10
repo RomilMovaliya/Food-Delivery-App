@@ -74,6 +74,7 @@ const TopBrands: React.FC = () => {
                     sx={{
                         display: 'flex', // Align items in a row
                         overflowX: 'auto', // Enable horizontal scrolling
+                        scrollbarWidth: "none",
                         gap: 6, // Space between items
                         paddingBottom: 2, // Optional: Adds padding at the bottom if scroll is visible
                     }}
