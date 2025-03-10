@@ -95,7 +95,6 @@ const Home: React.FC = () => {
                                     '@media (max-width: 410px)': {
                                         flexDirection: 'column',
                                         alignItems: 'stretch',
-
                                         marginLeft: '25px'
                                     }
 
