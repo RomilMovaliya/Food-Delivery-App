@@ -63,7 +63,7 @@ const TopBrands: React.FC = () => {
         <>
             <Box sx={{
                 marginInline: '60px',
-                marginTop: '100px'
+                marginTop: '120px'
             }}>
                 <Typography variant="h5" fontWeight="bold" mb={2}>
                     Top brands for you

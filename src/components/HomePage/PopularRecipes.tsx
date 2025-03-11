@@ -1,39 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useState } from "react";
-import piz1 from '../../assets/Images/FoodCategoryImg/piz1.jpeg';
-import piz2 from '../../assets/Images/FoodCategoryImg/piz2.jpeg';
-import piz3 from '../../assets/Images/FoodCategoryImg/piz3.jpeg';
-import piz4 from '../../assets/Images/FoodCategoryImg/piz4.jpeg';
-import piz5 from '../../assets/Images/FoodCategoryImg/piz5.jpeg';
-import piz6 from '../../assets/Images/FoodCategoryImg/piz6.jpeg';
-import piz7 from '../../assets/Images/FoodCategoryImg/piz7.jpeg';
-import piz8 from '../../assets/Images/FoodCategoryImg/piz8.jpeg';
-import piz9 from '../../assets/Images/FoodCategoryImg/piz9.jpeg';
-import dessert1 from '../../assets/Images/DetailViewImg/desserts1.png';
-import dessert2 from '../../assets/Images/DetailViewImg/desserts2.png';
-import dessert3 from '../../assets/Images/DetailViewImg/desserts3.png';
-import dessert4 from '../../assets/Images/DetailViewImg/desserts4.png';
-import dessert5 from '../../assets/Images/DetailViewImg/desserts5.png';
-import sides1 from '../../assets/Images/FoodCategoryImg/sides1.jpeg';
-import sides2 from '../../assets/Images/FoodCategoryImg/sides2.jpeg';
-import sides3 from '../../assets/Images/FoodCategoryImg/sides3.jpeg';
-import sides4 from '../../assets/Images/FoodCategoryImg/sides4.jpeg';
-import sides5 from '../../assets/Images/FoodCategoryImg/sides5.jpeg';
-import sides6 from '../../assets/Images/FoodCategoryImg/sides6.jpeg';
-import sides7 from '../../assets/Images/FoodCategoryImg/sides7.jpeg';
-import bread1 from '../../assets/Images/FoodCategoryImg/bread1.jpeg';
-import bread2 from '../../assets/Images/FoodCategoryImg/bread2.jpeg';
-import bread3 from '../../assets/Images/FoodCategoryImg/bread3.webp';
-import bread4 from '../../assets/Images/FoodCategoryImg/bread4.jpeg';
-import bread5 from '../../assets/Images/FoodCategoryImg/bread5.jpeg';
-import bread6 from '../../assets/Images/FoodCategoryImg/bread6.jpeg';
-import bread7 from '../../assets/Images/FoodCategoryImg/bread7.jpeg';
-import burg1 from '../../assets/Images/FoodCategoryImg/burg1.jpeg';
-import burg2 from '../../assets/Images/FoodCategoryImg/burg2.jpeg';
-import burg3 from '../../assets/Images/FoodCategoryImg/burg3.jpeg';
-import burg4 from '../../assets/Images/FoodCategoryImg/burg4.jpeg';
-import burg5 from '../../assets/Images/FoodCategoryImg/burg5.jpeg';
-import burg6 from '../../assets/Images/FoodCategoryImg/burg6.jpeg';
+
+import {
+    bread1, bread2, bread3, bread4, bread5, bread6, bread7, cafesides1, cafesides2, cafesides3, cafesides4, cafesides5, cafesides6, cafesides7, burg1, burg2, burg3, burg4, burg5, burg6, piz1, piz2, piz3, piz4, piz5, piz6, piz7, piz8, piz9,
+    dessert1, dessert2, dessert3, dessert4, dessert5
+} from '../../assets/index'
 
 
 import leftImg from '../../assets/Images/left-side.png';
@@ -194,7 +165,7 @@ const PopularRecipes: React.FC = () => {
 
         [
             {
-                image: sides1,
+                image: cafesides1,
                 title: 'Loaded Cheesy Fries',
                 time: '10 min',
                 description: 'Crispy fries topped with melted cheese sauce and bacon bits.',
@@ -202,7 +173,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides2,
+                image: cafesides2,
                 title: 'Cheesy Potato Wedges',
                 time: '10 min',
                 description: 'Crispy potato wedges topped with melted cheese sauce.',
@@ -210,7 +181,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides3,
+                image: cafesides3,
                 title: 'Creamy Mashed Potatoes',
                 time: '10 min',
                 description: 'Smooth, buttery mashed potatoes with signature gravy.',
@@ -218,7 +189,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides4,
+                image: cafesides4,
                 title: 'Onion Rings',
                 time: '10 min',
                 description: 'Crispy onion rings served with a tangy dipping sauce.',
@@ -226,7 +197,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides5,
+                image: cafesides5,
                 title: 'Corn on the Cob',
                 time: '10 min',
                 description: 'Freshly steamed corn on the cob, served with a buttery finish.',
@@ -234,7 +205,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides6,
+                image: cafesides6,
                 title: 'Sweet Potato Fries',
                 time: '10 min',
                 description: 'Crispy sweet potato fries, lightly seasoned and served with a dipping sauce.',
@@ -242,7 +213,7 @@ const PopularRecipes: React.FC = () => {
                 category: "Sides"
             },
             {
-                image: sides7,
+                image: cafesides7,
                 title: 'Mashed Potato with Gravy',
                 time: '10 min',
                 description: 'Creamy mashed potatoes served with a rich, savory gravy.',
@@ -459,25 +430,26 @@ const PopularRecipes: React.FC = () => {
                 marginTop: '70px',
             }}>
                 {buttonItem.map((item, index) => (
-                    <Button
+                    <button
 
                         key={index}
                         onClick={() => handleTabChange(index)}  // Handle tab change and set category
-                        variant="contained"
-                        sx={{
-                            fontfamily: "Poppins",
+
+                        style={{
+
                             fontWeight: 600,
                             backgroundColor: value === index ? yellow[700] : '#ECEEF6',
                             color: value === index ? 'white' : 'black',
                             height: '50px',
                             borderRadius: '30px',
-                            '&:hover': {
-                                backgroundColor: value === index ? yellow[600] : '#D1D9E6',
-                            },
+                            border: 'none'
+                            // '&:hover': {
+                            //     backgroundColor: value === index ? yellow[600] : '#D1D9E6',
+                            // },
                         }}
                     >
                         {item}  {/* Display the name from the array */}
-                    </Button>
+                    </button>
                 ))}
             </Box>
 

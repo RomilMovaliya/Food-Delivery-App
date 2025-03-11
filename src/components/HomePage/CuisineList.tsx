@@ -1,10 +1,5 @@
 import { Box, Card, CardContent, CardMedia, Container, Stack, Typography } from '@mui/material';
-import cuisineImg1 from '../../assets/Images/cuisineImg1.jpg'
-import cuisineImg2 from '../../assets/Images/cuisineImg2.jpg'
-import cuisineImg3 from '../../assets/Images/cuisineImg3.jpg'
-import dish1 from '../../assets/Images/dish1.jpg'
-import dish2 from '../../assets/Images/dish2.jpg'
-import dish3 from '../../assets/Images/dish3.jpg'
+import { cuisineImg1, cuisineImg2, cuisineImg3, dish1, dish2, dish3 } from '../../assets/index'
 import { Link } from 'react-router-dom';
 
 

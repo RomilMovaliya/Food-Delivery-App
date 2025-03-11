@@ -64,6 +64,33 @@ import cafesides6 from '../assets/Images/FoodCategoryImg/sides6.jpeg';
 import cafesides7 from '../assets/Images/FoodCategoryImg/sides7.jpeg';
 
 
+import burg1 from '../assets/Images/FoodCategoryImg/burg1.jpeg';
+import burg3 from '../assets/Images/FoodCategoryImg/burg3.jpeg';
+import burg2 from '../assets/Images/FoodCategoryImg/burg2.jpeg';
+import burg4 from '../assets/Images/FoodCategoryImg/burg4.jpeg';
+import burg5 from '../assets/Images/FoodCategoryImg/burg5.jpeg';
+import burg6 from '../assets/Images/FoodCategoryImg/burg6.jpeg';
+import piz1 from '../assets/Images/FoodCategoryImg/piz1.jpeg';
+import piz2 from '../assets/Images/FoodCategoryImg/piz2.jpeg';
+import piz3 from '../assets/Images/FoodCategoryImg/piz3.jpeg';
+import piz4 from '../assets/Images/FoodCategoryImg/piz4.jpeg';
+import piz5 from '../assets/Images/FoodCategoryImg/piz5.jpeg';
+import piz6 from '../assets/Images/FoodCategoryImg/piz6.jpeg';
+import piz7 from '../assets/Images/FoodCategoryImg/piz7.jpeg';
+import piz8 from '../assets/Images/FoodCategoryImg/piz8.jpeg';
+import piz9 from '../assets/Images/FoodCategoryImg/piz9.jpeg';
+import dessert1 from '../assets/Images/DetailViewImg/desserts1.png';
+import dessert2 from '../assets/Images/DetailViewImg/desserts2.png';
+import dessert3 from '../assets/Images/DetailViewImg/desserts3.png';
+import dessert4 from '../assets/Images/DetailViewImg/desserts4.png';
+import dessert5 from '../assets/Images/DetailViewImg/desserts5.png';
+
+import cuisineImg1 from '../assets/Images/cuisineImg1.jpg'
+import cuisineImg2 from '../assets/Images/cuisineImg2.jpg'
+import cuisineImg3 from '../assets/Images/cuisineImg3.jpg'
+import dish1 from '../assets/Images/dish1.jpg'
+import dish2 from '../assets/Images/dish2.jpg'
+import dish3 from '../assets/Images/dish3.jpg'
 
 
 
@@ -81,8 +108,13 @@ export {
     coffee1, coffee2, coffee3, coffee4,
     kfcChicken1, kfcChicken2, kfcChicken3, kfcChicken4,
     bread1, bread2, bread3, bread4, bread5, bread6, bread7,
-    cafesides1, cafesides2, cafesides3, cafesides4, cafesides5, cafesides6, cafesides7
+    cafesides1, cafesides2, cafesides3, cafesides4, cafesides5, cafesides6, cafesides7,
 
+    burg1, burg2, burg3, burg4, burg5, burg6,
+    piz1, piz2, piz3, piz4, piz5, piz6, piz7, piz8, piz9,
+    dessert1, dessert2, dessert3, dessert4, dessert5,
+
+    cuisineImg1, cuisineImg2, cuisineImg3, dish1, dish2, dish3
 };
 
 
