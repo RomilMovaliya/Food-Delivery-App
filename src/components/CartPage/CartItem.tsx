@@ -66,12 +66,12 @@ const CartItem = () => {
                             >
                                 <Box
                                     component='img'
-                                    src={cartImg}
+                                    src={item.image}
                                     alt='cart item'
                                     sx={{
                                         height: 'auto',
                                         width: '100%',
-                                        maxHeight: '200px',
+                                        maxHeight: '280px',
                                         objectFit: 'cover',
                                     }}
                                 />

@@ -29,7 +29,7 @@ const OrderOnline = () => {
     }
 
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState(`Lapino'z Recommended`); // Default category
+    const [selectedCategory, setSelectedCategory] = useState(`'$(Lapino'z) Recommended`); // Default category
 
     const [items, setItems] = useState<AllItems[]>([]);
 
@@ -101,7 +101,7 @@ const OrderOnline = () => {
 
     const itemsInCart = useSelector((state: RootState) => state.cart.items);
 
-    const handleAddToCart = (item: { id: number; name: string; price: number }) => {
+    const handleAddToCart = (item: { id: number; name: string; price: number, image: string }) => {
         dispatch(addItem(item)); // Add item to cart
     };
 

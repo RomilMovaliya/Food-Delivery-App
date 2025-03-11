@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
 
 
     // Set colors based on the current route
-    const isCategoriesPage = location.pathname === '/categories' || location.pathname.startsWith('/detailView') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/restaurant/') || location.pathname === '/cart' || location.pathname === '/profile' || location.pathname === '/detailView/:id';
+    const isCategoriesPage = location.pathname === '/categories' || location.pathname.startsWith('/detailView') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/restaurant/') || location.pathname === '/cart' || location.pathname === '/profile' || location.pathname === '/auth' || location.pathname === '/detailView/:id';
     const manuColor = isCategoriesPage ? '#FFC300' : 'white';
     const ProfileColor = isCategoriesPage ? '#FFC300' : 'white';
     const navLinkColor = isCategoriesPage ? '#FFC300' : '#FFC300';
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
 
                             <li style={{ margin: '15px', listStyle: 'none' }}>
 
-                                <NavLink style={{ textDecoration: 'none', color: ProfileColor }} to='/profile'>
+                                <NavLink style={{ textDecoration: 'none', color: ProfileColor }} to='/auth'>
 
                                     <IconButton>
                                         <AccountCircle
