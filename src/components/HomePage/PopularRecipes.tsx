@@ -517,12 +517,12 @@ const PopularRecipes: React.FC = () => {
                                 height: "3rem",
                                 width: "3rem",
                                 backgroundColor: "white",
-                                borderRight: "2px solid #ECEEF6",
-                                borderBottom: "2px solid #ECEEF6",
+                                borderRight: "3px solid #ECEEF6",
+                                borderBottom: "3px solid #ECEEF6",
                                 borderRadius: "0.5rem",
                                 display: "flex",
                                 justifyContent: "center",
-                                alignItems: "center"
+                                alignItems: "center",
                             }}>
                                 <Box className="circle" sx={{
                                     transform: "rotate(-45deg)",

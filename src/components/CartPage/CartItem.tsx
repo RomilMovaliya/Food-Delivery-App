@@ -3,6 +3,9 @@ import cartImg from '../../assets/Images/CartImg/cartImg.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store/store';
 import { decrementQuantity, incrementQuantity, removeItem } from '../../Redux/features/cartSlice';
+import Lottie from 'lottie-react';
+import emptyCartAnimation from '../../assets/Images/EmptyBox.json';
+
 
 const CartItem = () => {
     const dispatch = useDispatch();
@@ -23,14 +26,49 @@ const CartItem = () => {
     // Calculate the total price of all items in the cart
     const totalPrice = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
+
     return (
         <>
-            <Typography marginTop='120px' marginInline={3} fontSize={30} fontFamily={'Poppins'} fontWeight={500}>
+            <Typography marginTop='100px' marginInline={3} fontSize={30} fontWeight={600} fontFamily={'Poppins'} >
                 Your Cart
             </Typography>
 
+
             {items.length === 0 ? (
-                <Typography>No items in the cart</Typography>
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+
+                }}>
+                    <Typography fontWeight={500} fontFamily={'Poppins'} sx={{
+                        position: 'absolute', zIndex: 2,
+                        fontSize: {
+                            xs: 20,
+                            sm: 25,
+                            lg: 30
+                        },
+
+                        marginTop: {
+                            xs: 20,
+                            lg: 10
+                        },
+
+                        '@media(max-width:420px)': {
+                            marginInline: 2,
+                            marginTop: 30
+                        }
+                    }}>
+                        Oops! No items Found in the cart
+                    </Typography>
+                    <Lottie animationData={emptyCartAnimation} loop={false} autoplay={true} height='100px' width='100px' style={{
+                        position: 'absolute',
+                        zIndex: 0,
+                        marginTop: 500
+                    }} />
+                </Box>
+
             ) : (
                 <Grid container spacing={3} sx={{ marginBottom: 3 }} width="90%" m="auto">
                     {items.map((item) => (

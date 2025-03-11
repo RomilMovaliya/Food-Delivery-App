@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.6.0",
     "@types/react-router-dom": "^5.3.3",
     "framer-motion": "^12.4.10",
+    "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",

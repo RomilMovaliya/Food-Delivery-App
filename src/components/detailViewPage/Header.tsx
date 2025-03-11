@@ -29,7 +29,7 @@ const Header = () => {
     }
 
     const { id } = useParams<{ id: string }>();
-    
+
     const [selectedBrand, setSelectedBrand] = useState<HeadersImg | null>(null);
 
 
@@ -101,16 +101,20 @@ const Header = () => {
                     sm: 'row',
                     xs: 'column'
                 },
-                gap: '10px',
-                marginTop: '80px',
-                marginInline: '15px',
+                gap: '8px',
+                marginTop: '70px',
+                marginInline: '0px',
                 '@media (max-width:600px)': {
                     marginTop: '110px',
                     gap: '5px'
                 },
             }}>
-                <Box width='100%'>
-                    <Box component='img' src={selectedBrand?.image1} height='570px' width='100%' />
+                <Box sx={{
+                    sm: '100%',
+                    md: '30%',
+                    lg: '50%'
+                }} >
+                    <Box component='img' src={selectedBrand?.image1} height='568px' width='100%' />
                 </Box>
                 <Box width='50%'>
                     <Stack sx={{
@@ -120,7 +124,7 @@ const Header = () => {
                             sm: 'column',
                             xs: 'row'
                         },
-                        gap: '10px',
+                        gap: '8px',
                         '@media (max-width:600px)': {
                             gap: '5px',
 

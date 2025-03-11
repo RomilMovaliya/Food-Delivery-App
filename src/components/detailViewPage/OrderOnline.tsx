@@ -29,7 +29,7 @@ const OrderOnline = () => {
     }
 
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState(`'$(Lapino'z) Recommended`); // Default category
+    const [selectedCategory, setSelectedCategory] = useState(`'Lapino'z Recommended`); // Default category
 
     const [items, setItems] = useState<AllItems[]>([]);
 
@@ -285,7 +285,7 @@ const OrderOnline = () => {
                                         {/* Conditional rendering for Add to Cart or quantity adjustment */}
                                         {!itemInCart ? (
                                             <Button
-                                                variant="outlined"
+                                                variant="contained"
                                                 sx={{ backgroundColor: '#FFA500', color: 'white', width: '100%' }}
                                                 onClick={() => handleAddToCart(item)} // Add item to cart
                                             >
