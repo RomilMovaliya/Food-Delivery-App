@@ -29,7 +29,7 @@ const OrderOnline = () => {
     }
 
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [selectedCategory, setSelectedCategory] = useState(`'Lapino'z Recommended`); // Default category
+    const [selectedCategory, setSelectedCategory] = useState(''); // Default category
 
     const [items, setItems] = useState<AllItems[]>([]);
 
@@ -119,6 +119,8 @@ const OrderOnline = () => {
         const brandId = parseInt(id);
         if (recommendedItems[brandId]) {
             setAllRecommendedItems(recommendedItems[brandId]);
+            // Set the default category after recommended items are loaded
+            setSelectedCategory(recommendedItems[brandId][0].category);
         } else {
             setAllRecommendedItems([]);
         }
@@ -139,173 +141,180 @@ const OrderOnline = () => {
     const filteredItems = Object.values(allItems).flat().filter(item => item.category === selectedCategory);
     return (
         <>
-            <Stack
-                sx={{
-                    flexDirection: 'row',
-                    '@media (max-width:600px)': {
-                        flexDirection: 'column',
-                        marginInline: '20px',
-                    },
-
-
-                }}
-                spacing={2}
-                alignItems="flex-start"
-            >
-                <Box sx={{ maxWidth: 400, padding: 2, marginLeft: 0 }}>
-                    {allrecommendedItems.map((item, index) => (
-
-                        <ListItemButton
-                            key={index}
-
-                            selected={selectedIndex === index}
-                            onClick={() => handleListItemClick(index, item.category)}
-                            sx={{
-                                minWidth: {
-                                    xs: 200,
-                                    lg: 300
-                                },
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                padding: 2,
-                                borderRadius: 2,
-                                transition: 'all 0.3s ease',
-                                '&.Mui-selected': {
-                                    bgcolor: '#FFC300',
-                                    color: '#fff',
-                                    fontWeight: 'bold',
-                                },
-                                '&:hover': {
-                                    bgcolor: '#FFC300',
-                                    transform: 'scale(1.05)',
-                                },
-                            }}
-                        >
-                            <ListItemText primary={item.name} />
-
-                        </ListItemButton>
-                    ))}
-                </Box>
-
-                {/* Vertical line */}
-                <Box
+            <Box sx={{
+                marginInline: '160px'
+            }}>
+                <Stack
                     sx={{
-                        height: '500px',
-                        width: '2px',
-                        backgroundColor: '#FFC300',
-                        marginTop: 3,
-                        marginBottom: 20,
+                        flexDirection: 'row',
                         '@media (max-width:600px)': {
-                            height: '0px',
-                            width: '0px',
+                            flexDirection: 'column',
+                            marginInline: '20px',
                         },
+
+
                     }}
-                />
+                    spacing={2}
+                    alignItems="flex-start"
+                >
+                    <Box sx={{ maxWidth: 400, padding: 2, marginLeft: 0 }}>
+                        {allrecommendedItems.map((item, index) => (
 
-                <Stack>
-                    <Typography variant="h4" sx={{
-                        marginBottom: 2, fontWeight: 'bold', marginLeft: {
-                            xs: '20px',
-                            lg: '30px'
-                        },
+                            <ListItemButton
+                                key={index}
 
-                    }}>
-                        {selectedCategory.split(' ').slice(1).join(' ')} {/* Display the selected category */}
-                    </Typography>
+                                selected={selectedIndex === index}
+                                onClick={() => handleListItemClick(index, item.category)}
+                                sx={{
+                                    minWidth: {
+                                        xs: 200,
+                                        lg: 300
+                                    },
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    padding: 2,
+                                    borderRadius: 2,
+                                    transition: 'all 0.3s ease',
+                                    '&.Mui-selected': {
+                                        bgcolor: '#FFC300',
+                                        color: '#fff',
+                                        fontWeight: 'bold',
+                                    },
+                                    '&:hover': {
+                                        bgcolor: '#FFC300',
+                                        transform: 'scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ListItemText primary={item.name} />
 
-                    {/* Recommended content */}
-                    <Box marginTop="10px" marginInline="70px" sx={{ '@media (max-width:1090px)': { marginInline: '60px' } }}>
-                        {filteredItems.map((item, idx) => {
-                            const itemInCart = itemsInCart.find((cartItem) => cartItem.id === item.id); // Get the item from cart
+                            </ListItemButton>
+                        ))}
+                    </Box>
 
-                            return (
-                                <Stack
-                                    key={item.id}
-                                    sx={{
-                                        flexDirection: { lg: 'row', sm: 'row', md: 'row', '@media (max-width:830px)': 'column', '@media (max-width:780px)': 'column' },
-                                        marginBlock: 2,
-                                        borderRadius: '10px',
-                                        boxShadow: '0 6px 12px 4px rgba(0, 0, 0, 0.3)',
-                                        '@media (max-width:600px)': {
-                                            padding: '20px'
-                                        },
-                                    }}
-                                >
-                                    <Box
-                                        component="img"
-                                        padding={2}
-                                        src={item.image} // Loop through the images
+                    {/* Vertical line */}
+                    <Box
+                        sx={{
+                            height: '500px',
+                            width: '2px',
+                            backgroundColor: '#FFC300',
+                            marginTop: 3,
+                            marginBottom: 20,
+                            '@media (max-width:600px)': {
+                                height: '0px',
+                                width: '0px',
+                            },
+                        }}
+                    />
+
+                    <Stack>
+                        <Typography variant="h4" sx={{
+                            marginBottom: 2, fontWeight: 'bold', marginLeft: {
+                                xs: '20px',
+                                lg: '30px'
+                            },
+
+                        }}>
+                            {selectedCategory.split(' ').slice(1).join(' ')} {/* Display the selected category */}
+                        </Typography>
+
+                        {/* Recommended content */}
+                        <Box marginTop="10px" marginInline="70px" sx={{ '@media (max-width:1090px)': { marginInline: '60px' } }}>
+                            {filteredItems.map((item, idx) => {
+                                const itemInCart = itemsInCart.find((cartItem) => cartItem.id === item.id); // Get the item from cart
+
+                                return (
+                                    <Stack
+                                        key={item.id}
                                         sx={{
+                                            flexDirection: { lg: 'row', sm: 'row', md: 'row', '@media (max-width:830px)': 'column', '@media (max-width:780px)': 'column' },
+                                            marginBlock: 2,
                                             borderRadius: '10px',
-                                            height: { sm: '150px', md: '190px', lg: '200px' },
-                                            width: { sm: '150px', md: '190px', lg: '200px' },
-                                            '@media (max-width:830px)': {
-                                                display: 'flex',
-                                                width: '200px',
-                                                marginInline: '30px',
-                                                justifyContent: 'center',
-                                            },
-
-                                            '@media (max-width:829px)': {
-                                                display: 'flex',
-                                                width: '150px',
-                                                marginInline: '20px',
-                                                justifyContent: 'center',
-                                            },
-
-                                            '@media (max-width:780px)': {
-                                                display: 'flex',
-                                                width: '150px',
-                                                marginInline: '5px',
-                                                justifyContent: 'center',
+                                            boxShadow: '0 6px 12px 1px rgba(0, 0, 0, 0.1)',
+                                            '@media (max-width:600px)': {
+                                                padding: '20px'
                                             },
                                         }}
-                                        borderRadius={4}
-                                    />
-                                    <Stack sx={{ margin: { md: 2, sm: 1 } }}>
-                                        <Typography>{item.name}</Typography>
-                                        <Typography
+                                    >
+                                        <Box
+                                            component="img"
+                                            padding={2}
+                                            src={item.image} // Loop through the images
                                             sx={{
-                                                marginTop: { md: 2, sm: 1, lg: 2 },
-                                                fontSize: { lg: 20, md: 15, sm: 12 },
-                                                color: '#848484',
-                                            }}
-                                        >
-                                            {item.description}
-                                        </Typography>
-                                        <Typography
-                                            sx={{
-                                                fontSize: { md: '20px', sm: '20px' },
-                                                marginTop: { md: 1, sm: 1, lg: 2 },
-                                            }}
-                                        >
-                                            ₹{item.price}
-                                        </Typography>
+                                                borderRadius: '10px',
+                                                height: { sm: '150px', md: '190px', lg: '200px' },
+                                                width: { sm: '150px', md: '190px', lg: '200px' },
+                                                '@media (max-width:830px)': {
+                                                    display: 'flex',
+                                                    width: '200px',
+                                                    marginInline: '30px',
+                                                    justifyContent: 'center',
+                                                },
 
-                                        {/* Conditional rendering for Add to Cart or quantity adjustment */}
-                                        {!itemInCart ? (
-                                            <Button
-                                                variant="contained"
-                                                sx={{ backgroundColor: '#FFA500', color: 'white', width: '100%' }}
-                                                onClick={() => handleAddToCart(item)} // Add item to cart
+                                                '@media (max-width:829px)': {
+                                                    display: 'flex',
+                                                    width: '150px',
+                                                    marginInline: '20px',
+                                                    justifyContent: 'center',
+                                                },
+
+                                                '@media (max-width:780px)': {
+                                                    display: 'flex',
+                                                    width: '150px',
+                                                    marginInline: '5px',
+                                                    justifyContent: 'center',
+                                                },
+                                            }}
+                                            borderRadius={4}
+                                        />
+                                        <Stack sx={{ width: '100%', margin: { md: 2, sm: 1 } }}>
+                                            <Typography>{item.name}</Typography>
+                                            <Typography
+                                                sx={{
+                                                    marginTop: { md: 2, sm: 1, lg: 2 },
+                                                    fontSize: { lg: 20, md: 15, sm: 12 },
+                                                    color: '#848484',
+                                                }}
                                             >
-                                                Add To Cart
-                                            </Button>
-                                        ) : (
-                                            <Stack direction="row" spacing={1}>
-                                                <Button sx={{ fontWeight: '700', backgroundColor: '#F3F3F3', color: 'black' }} onClick={() => handleDecrement(item.id)}>-</Button>
-                                                {/* Display the quantity from the Redux store */}
-                                                <Typography sx={{ alignContent: 'center' }}>{itemInCart.quantity}</Typography>
-                                                <Button sx={{ backgroundColor: '#FFA500', color: 'white' }} onClick={() => handleIncrement(item.id)}>+</Button>
-                                            </Stack>
-                                        )}
+                                                {item.description}
+                                            </Typography>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: { md: '20px', sm: '20px' },
+                                                    marginTop: { md: 1, sm: 1, lg: 2 },
+                                                }}
+                                            >
+                                                ₹{item.price}
+                                            </Typography>
+
+                                            <Box width='100%'>
+                                                {/* Conditional rendering for Add to Cart or quantity adjustment */}
+                                                {!itemInCart ? (
+                                                    <Button
+                                                        variant="contained"
+                                                        sx={{ backgroundColor: '#FFA500', color: 'white', width: '100%' }}
+                                                        onClick={() => handleAddToCart(item)} // Add item to cart
+                                                    >
+                                                        Add To Cart
+                                                    </Button>
+                                                ) : (
+                                                    <Stack direction="row" spacing={1}>
+                                                        <Button sx={{ fontWeight: '700', backgroundColor: '#F3F3F3', color: 'black' }} onClick={() => handleDecrement(item.id)}>-</Button>
+                                                        {/* Display the quantity from the Redux store */}
+                                                        <Typography sx={{ alignContent: 'center' }}>{itemInCart.quantity}</Typography>
+                                                        <Button sx={{ backgroundColor: '#FFA500', color: 'white' }} onClick={() => handleIncrement(item.id)}>+</Button>
+                                                    </Stack>
+                                                )}
+                                            </Box>
+
+                                        </Stack>
                                     </Stack>
-                                </Stack>
-                            );
-                        })}
-                    </Box>
+                                );
+                            })}
+                        </Box>
+                    </Stack>
                 </Stack>
-            </Stack>
+            </Box>
         </>
     );
 };

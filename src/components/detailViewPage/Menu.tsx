@@ -4,7 +4,7 @@ import mcdMenu from '../../assets/Images/DetailViewImg/mcdManu.jpg'
 const Menu = () => {
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', marginBottom: 3 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'flex-start', marginBottom: 3, marginInline: '160px' }}>
                 <Box sx={{
                     width: '500px', paddingInline: '30px', '@media (max-width:600px)': {
                         marginLeft: '0px',
@@ -14,14 +14,16 @@ const Menu = () => {
 
                 <Stack flexDirection={{
                     xs: 'column',
+                    sm: 'row',
+                    md: 'row',
                     lg: 'row',
                     xl: 'row'
-                }} spacing={{
-                    xs: 3,
-                    lg: 0
                 }} justifyContent="center" gap={{
-                    lg: 3
-                }} marginTop={2}>
+                    xs: 3,
+                    lg: 3,
+                    md: 3,
+                    sm: 3
+                }} marginTop={2} marginInline={2.5}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Box
                             component="img"
@@ -39,6 +41,7 @@ const Menu = () => {
                             src={menu1}
                             height="250px"
                             width="200px"
+
                             sx={{ borderRadius: '15px' }}
                         />
                         <Typography sx={{ marginTop: 1 }}>Takeaway Menu</Typography>
