@@ -4,7 +4,12 @@ import mcdMenu from '../../assets/Images/DetailViewImg/mcdManu.jpg'
 const Menu = () => {
     return (
         <>
-            <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'flex-start', marginBottom: 3, marginInline: '160px' }}>
+            <Box sx={{
+                display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'flex-start', marginBottom: 3, marginInline: {
+                    lg: '160px',
+                    xs: '30px'
+                }
+            }}>
                 <Box sx={{
                     width: '500px', paddingInline: '30px', '@media (max-width:600px)': {
                         marginLeft: '0px',
@@ -23,7 +28,7 @@ const Menu = () => {
                     lg: 3,
                     md: 3,
                     sm: 3
-                }} marginTop={2} marginInline={2.5}>
+                }} marginTop={2} marginInline={3}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Box
                             component="img"

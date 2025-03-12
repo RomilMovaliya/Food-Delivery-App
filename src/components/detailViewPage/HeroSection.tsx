@@ -179,15 +179,23 @@ const HeroSection: React.FC = () => {
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent: 'center', margin: '30px' }}>
-                <Stack direction={'row'} alignItems={'center'}>
+                <Stack sx={{
+                    flexDirection: {
+                        lg: 'row',
+                        md: 'row',
+                        sm: 'row'
+
+
+                    },
+                    '@media (max-width:600px)': {
+                        flexDirection: 'column'
+                    },
+                }} alignItems={'center'}>
                     <Box component='img' src={selectedBrandImg?.image} sx={{
                         height: '180px',
                         width: '180px',
                         padding: '10px',
-                        '@media (max-width:600px)': {
-                            height: '100px',
-                            width: '100px',
-                        },
+
                     }} />
                     <Box>
                         <Typography>

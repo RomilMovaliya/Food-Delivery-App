@@ -103,10 +103,11 @@ const Header = () => {
                 },
                 gap: '8px',
                 marginTop: '70px',
-                marginInline: '0px',
+
                 '@media (max-width:600px)': {
                     marginTop: '110px',
-                    gap: '5px'
+                    gap: '0px',
+
                 },
             }}>
                 <Box sx={{

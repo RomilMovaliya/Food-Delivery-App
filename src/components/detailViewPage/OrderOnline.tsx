@@ -142,12 +142,25 @@ const OrderOnline = () => {
     return (
         <>
             <Box sx={{
-                marginInline: '160px'
+                marginInline: {
+                    lg: '160px',
+                    xs: '30px',
+                },
+                '@media (max-width:320px)': {
+                    flexDirection: 'column',
+                    marginInline: '10px',
+                },
+
             }}>
                 <Stack
                     sx={{
                         flexDirection: 'row',
                         '@media (max-width:600px)': {
+                            flexDirection: 'column',
+                            marginInline: '20px',
+                        },
+
+                        '@media (max-width:850px)': {
                             flexDirection: 'column',
                             marginInline: '20px',
                         },
@@ -200,7 +213,8 @@ const OrderOnline = () => {
                             backgroundColor: '#FFC300',
                             marginTop: 3,
                             marginBottom: 20,
-                            '@media (max-width:600px)': {
+
+                            '@media (max-width:850px)': {
                                 height: '0px',
                                 width: '0px',
                             },
@@ -211,7 +225,13 @@ const OrderOnline = () => {
                         <Typography variant="h4" sx={{
                             marginBottom: 2, fontWeight: 'bold', marginLeft: {
                                 xs: '20px',
-                                lg: '30px'
+                                lg: '30px',
+
+
+                            },
+
+                            '@media (max-width:600px)': {
+                                marginLeft: '0px'
                             },
 
                         }}>
@@ -219,7 +239,7 @@ const OrderOnline = () => {
                         </Typography>
 
                         {/* Recommended content */}
-                        <Box marginTop="10px" marginInline="70px" sx={{ '@media (max-width:1090px)': { marginInline: '60px' } }}>
+                        <Box marginTop="10px" marginInline="70px" sx={{ '@media (max-width:1090px)': { marginInline: '10px' } }}>
                             {filteredItems.map((item, idx) => {
                                 const itemInCart = itemsInCart.find((cartItem) => cartItem.id === item.id); // Get the item from cart
 
@@ -241,9 +261,10 @@ const OrderOnline = () => {
                                             padding={2}
                                             src={item.image} // Loop through the images
                                             sx={{
+                                                // border: '2px solid black',
                                                 borderRadius: '10px',
                                                 height: { sm: '150px', md: '190px', lg: '200px' },
-                                                width: { sm: '150px', md: '190px', lg: '200px' },
+                                                width: { sm: '150px', md: '190px', lg: '300px' },
                                                 '@media (max-width:830px)': {
                                                     display: 'flex',
                                                     width: '200px',
