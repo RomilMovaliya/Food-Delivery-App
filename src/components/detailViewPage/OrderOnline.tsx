@@ -5,6 +5,7 @@ import { addItem, decrementQuantity, incrementQuantity } from '../../Redux/featu
 import { RootState } from '../../Redux/store/store';
 import { itemsData } from '../../data/OrderOnlineData';
 import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
 
 const OrderOnline = () => {
     const dispatch = useDispatch();
@@ -102,15 +103,24 @@ const OrderOnline = () => {
     const itemsInCart = useSelector((state: RootState) => state.cart.items);
 
     const handleAddToCart = (item: { id: number; name: string; price: number, image: string }) => {
-        dispatch(addItem(item)); // Add item to cart
+        const existingItem = itemsInCart.find(cartItem => cartItem.id === item.id);
+
+        if (existingItem && existingItem.quantity >= 5) {
+            toast.error('Maximum quantity of 5 reached for this item!');
+        } else {
+            dispatch(addItem(item)); // Add item to cart
+            toast.success('Item added to cart successfully!');
+        }
     };
 
     const handleIncrement = (id: number) => {
         dispatch(incrementQuantity(id)); // Increment quantity of item in cart
+        toast.success('item added successfully')
     };
 
     const handleDecrement = (id: number) => {
         dispatch(decrementQuantity(id)); // Decrement quantity of item in cart
+        toast.success('item removed from cart')
     };
 
     const [allrecommendedItems, setAllRecommendedItems] = useState<RecommendedItems[]>([]);
@@ -310,15 +320,16 @@ const OrderOnline = () => {
                                                         variant="contained"
                                                         sx={{ backgroundColor: '#FFA500', color: 'white', width: '100%' }}
                                                         onClick={() => handleAddToCart(item)} // Add item to cart
+                                                        disabled={itemInCart?.quantity === 5} // Disable button if item quantity is 5
                                                     >
                                                         Add To Cart
+
                                                     </Button>
                                                 ) : (
                                                     <Stack direction="row" spacing={1}>
                                                         <Button sx={{ fontWeight: '700', backgroundColor: '#F3F3F3', color: 'black' }} onClick={() => handleDecrement(item.id)}>-</Button>
-                                                        {/* Display the quantity from the Redux store */}
                                                         <Typography sx={{ alignContent: 'center' }}>{itemInCart.quantity}</Typography>
-                                                        <Button sx={{ backgroundColor: '#FFA500', color: 'white' }} onClick={() => handleIncrement(item.id)}>+</Button>
+                                                        <Button sx={{ backgroundColor: '#FFA500', color: 'white' }} onClick={() => handleIncrement(item.id)} disabled={itemInCart.quantity === 5}>+</Button>
                                                     </Stack>
                                                 )}
                                             </Box>

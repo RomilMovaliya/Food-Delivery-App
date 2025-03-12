@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 interface CartItem {
     id: number;
     name: string;
     price: number;
     quantity: number;
-    image: string
+    image: string,
 }
 
 interface CartState {
@@ -23,9 +24,15 @@ const cartSlice = createSlice({
         addItem: (state, action: PayloadAction<CartItem>) => {
             const existingItem = state.items.find((item) => item.id === action.payload.id);
             if (existingItem) {
-                existingItem.quantity += 1;
+                // If the item exists and quantity is less than 5, increase the quantity
+                if (existingItem.quantity < 5) {
+                    existingItem.quantity += 1;
+                } else {
+                    toast.error('Maximum quantity of 5 reached for this item!');
+                }
+
             } else {
-                state.items.push(action.payload);
+                state.items.push({ ...action.payload, quantity: 1 });
             }
         },
         removeItem: (state, action: PayloadAction<number>) => {

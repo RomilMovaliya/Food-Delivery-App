@@ -6,6 +6,7 @@ import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, resetPassword, setUsers } from '../../Redux/features/authSlice';
+import { toast } from 'react-toastify';
 
 const ProfilePage = () => {
     const { currentUser, isLoggedIn } = useSelector((state) => state.user);
@@ -60,7 +61,8 @@ const ProfilePage = () => {
         setNewPassword('');
         setConfirmNewPassword('');
         setErrorMessage('');
-        alert('Password updated successfully!');
+        toast('Password updated successfully!')
+        // alert('Password updated successfully!');
     };
 
     return (
