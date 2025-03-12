@@ -69,7 +69,12 @@ const AuthPage = () => {
     };
 
     return (
-        <Box marginTop={15} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+        <Box marginTop={15} display="flex" flexDirection="column" alignItems="center" justifyContent="center" sx={{
+
+            '@media (max-width:430px)': {
+                marginInline: '30px'
+            }
+        }}>
             <form onSubmit={onSubmitHandler} style={{ width: '100%', maxWidth: '400px' }}>
                 <Typography sx={{ fontSize: '30px', fontFamily: 'Poppins', fontWeight: '700', color: yellow[700] }}>
                     {isRegister ? 'Register' : 'Login'}

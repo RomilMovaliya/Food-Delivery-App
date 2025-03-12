@@ -13,7 +13,7 @@ const Menu = () => {
                 <Box sx={{
                     width: '500px', paddingInline: '30px', '@media (max-width:600px)': {
                         marginLeft: '0px',
-                        width: '280px'
+                        width: '200px'
                     }
                 }}><Typography fontSize={24} fontWeight="200" textAlign={'left'}>Menu</Typography></Box>
 

@@ -94,6 +94,7 @@ const Header = () => {
 
     return (
         <>
+
             <Stack sx={{
                 flexDirection: {
                     lg: 'row',
@@ -102,10 +103,15 @@ const Header = () => {
                     xs: 'column'
                 },
                 gap: '8px',
-                marginTop: '70px',
+                marginTop: {
+                    xs: '70px',
+                    lg: '70px',
+                    md: '70px',
+                    sm: '70px',
+                },
 
                 '@media (max-width:600px)': {
-                    marginTop: '110px',
+                    marginTop: '100px',
                     gap: '0px',
 
                 },
@@ -113,9 +119,19 @@ const Header = () => {
                 <Box sx={{
                     sm: '100%',
                     md: '30%',
-                    lg: '50%'
+                    lg: '50%',
+                    xs: '100%',
+
+
                 }} >
-                    <Box component='img' src={selectedBrand?.image1} height='568px' width='100%' />
+                    <Box sx={{
+                        height: {
+                            xs: '300px',
+                            lg: '568px',
+                            md: '568px',
+                            sm: '568px'
+                        }
+                    }} component='img' src={selectedBrand?.image1} width='100%' />
                 </Box>
                 <Box width='50%'>
                     <Stack sx={{
@@ -127,7 +143,7 @@ const Header = () => {
                         },
                         gap: '8px',
                         '@media (max-width:600px)': {
-                            gap: '5px',
+                            gap: '0px',
 
                         },
 

@@ -68,13 +68,26 @@ const ProfilePage = () => {
             xs: 13,
 
             lg: 10
-        }} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
+        }} marginBottom={{
+            xs: 2,
+
+            lg: 5
+        }} display="flex" flexDirection="column" alignItems="center" justifyContent="center" sx={{
+            '@media (max-width:430px)': {
+                marginInline: '30px'
+            }
+        }}>
             {currentUser ? (
                 <>
                     <Typography sx={{ fontSize: '30px', fontFamily: 'Poppins', fontWeight: '700', color: yellow[700] }}>
                         Welcome, {currentUser.name}!
                     </Typography>
-                    <Typography sx={{ fontSize: '18px', fontFamily: 'Poppins', fontWeight: '500', color: yellow[700], marginTop: 2 }}>
+                    <Typography sx={{
+                        fontSize: '18px', fontFamily: 'Poppins', fontWeight: '500', color: yellow[700], marginTop: 2, '@media (max-width:430px)': {
+                            marginInline: '30px',
+                            fontSize: '15px'
+                        }
+                    }}>
                         Email: {currentUser.email}
                     </Typography>
 
