@@ -16,6 +16,21 @@ const Hero: React.FC = () => {
 
     const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
+    const { currentUser, isLoggedIn } = useSelector((state) => state.user);
+
+    let authFlag = false;
+    let redirectVar = '/auth';
+    if (isLoggedIn) {
+        authFlag = true;
+    }
+
+
+    if (authFlag === true) {
+        redirectVar = '/profile';
+        console.log(redirectVar)
+    } else {
+        console.log(redirectVar);
+    }
 
     // Set colors based on the current route
     const isCategoriesPage = location.pathname === '/categories' || location.pathname.startsWith('/detailView') || location.pathname.startsWith('/categories') || location.pathname.startsWith('/restaurant/') || location.pathname === '/cart' || location.pathname === '/profile' || location.pathname === '/auth' || location.pathname === '/detailView/:id';
@@ -83,7 +98,7 @@ const Hero: React.FC = () => {
 
                             <li style={{ margin: '15px', listStyle: 'none' }}>
 
-                                <NavLink style={{ textDecoration: 'none', color: ProfileColor }} to='/auth'>
+                                <NavLink style={{ textDecoration: 'none', color: ProfileColor }} to={redirectVar}>
 
                                     <IconButton>
                                         <AccountCircle
