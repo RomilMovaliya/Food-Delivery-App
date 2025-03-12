@@ -173,7 +173,7 @@ const OrderOnline = () => {
                     <Box sx={{ maxWidth: 400, padding: 2, marginLeft: 0 }}>
                         {allrecommendedItems.map((item, index) => (
 
-                            <ListItemButton
+                            <Button
                                 key={index}
 
                                 selected={selectedIndex === index}
@@ -185,23 +185,17 @@ const OrderOnline = () => {
                                     },
                                     display: 'flex',
                                     justifyContent: 'space-between',
-                                    padding: 2,
                                     borderRadius: 2,
                                     transition: 'all 0.3s ease',
-                                    '&.Mui-selected': {
-                                        bgcolor: '#FFC300',
-                                        color: '#fff',
-                                        fontWeight: 'bold',
-                                    },
-                                    '&:hover': {
-                                        bgcolor: '#FFC300',
-                                        transform: 'scale(1.05)',
-                                    },
+                                    backgroundColor: selectedIndex === index ? '#FFC300' : 'transparent',
+                                    color: selectedIndex === index ? 'black' : 'inherit',
+
+
                                 }}
                             >
                                 <ListItemText primary={item.name} />
 
-                            </ListItemButton>
+                            </Button>
                         ))}
                     </Box>
 
