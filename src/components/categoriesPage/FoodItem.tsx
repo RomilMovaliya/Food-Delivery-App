@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store/store';
 import { addItem, incrementQuantity, decrementQuantity } from '../../Redux/features/cartSlice';
+import { toast } from 'react-toastify';
 
 const FoodItem = () => {
     const { id } = useParams<{ id: string }>();
@@ -19,11 +20,20 @@ const FoodItem = () => {
     const getItemFromCart = (id: number) => {
         return itemsInCart.find((item) => item.id === id);
     };
+    const { isLoggedIn } = useSelector((state) => state.user);
 
     const handleAddToCart = (item: { id: number; name: string; price: number; quantity: number }) => {
+
+        if (!isLoggedIn) {
+            toast.error('Hey there! Please login to proceed.');
+            return;
+        }
+
         if (!getItemFromCart(item.id)) {
             dispatch(addItem({ ...item, quantity: 1 }));
         }
+
+        toast.success(`You’ve added ${item.name} to your cart. Time to dig in!!`);
     };
 
     const handleIncrement = (id: number) => {
@@ -116,6 +126,8 @@ const FoodItem = () => {
     }, [id]);
 
     const itemInCart = getItemFromCart(selectedFoodItem?.id || 0);
+
+
 
     return (
         <>

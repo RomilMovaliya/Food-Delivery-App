@@ -101,8 +101,16 @@ const OrderOnline = () => {
 
 
     const itemsInCart = useSelector((state: RootState) => state.cart.items);
+    const { isLoggedIn } = useSelector((state) => state.user);
+
 
     const handleAddToCart = (item: { id: number; name: string; price: number, image: string }) => {
+
+        if (!isLoggedIn) {
+            toast.error('Hey there! Please login to proceed.');
+            return;
+        }
+
         const existingItem = itemsInCart.find(cartItem => cartItem.id === item.id);
 
         if (existingItem && existingItem.quantity >= 5) {

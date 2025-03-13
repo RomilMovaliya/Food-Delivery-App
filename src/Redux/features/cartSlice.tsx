@@ -40,19 +40,21 @@ const cartSlice = createSlice({
             const item = state.items.find((item) => item.id === action.payload);
             if (item) {
                 item.quantity += 1;
+                toast.success(`You’ve added ${item.name} to your cart. Time to dig in!!`);
             }
         },
         decrementQuantity: (state, action: PayloadAction<number>) => {
             const item = state.items.find((item) => item.id === action.payload);
             if (item && item.quantity > 0) {
                 item.quantity -= 1;
+                toast.error(`${item.name} has been removed from your cart.`);
             }
 
 
             // Automatically remove the item if its quantity becomes 0
             if (item && item.quantity === 0) {
                 state.items = state.items.filter((item) => item.id !== action.payload);
-                toast.error(`${item.name} has been removed from your cart.`);
+
             }
         },
 
