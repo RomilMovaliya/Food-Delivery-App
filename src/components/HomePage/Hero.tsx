@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
 
     const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
-    const { currentUser, isLoggedIn } = useSelector((state) => state.user);
+    const { isLoggedIn } = useSelector((state) => state.user);
 
     let authFlag = false;
     let redirectVar = '/auth';

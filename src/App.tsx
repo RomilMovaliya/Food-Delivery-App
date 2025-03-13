@@ -13,7 +13,7 @@ import Restaurants from './components/HomePage/Restaurants';
 import AuthPage from './components/Authentication/AuthPage';
 import ProfilePage from './components/Authentication/ProfilePage';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
-import ROUTES from '../src/constant/constant'
+import { ROUTES } from '../src/constant/constant'
 
 function App() {
   const [navbarColor, setNavbarColor] = useState('transparent'); // Default color

@@ -1,12 +1,12 @@
 export const ROUTES = {
     HOME: "/home",
     AUTH: "/auth",
-    MENU: "/menu",
+    PROFILE: "/profile",
     CART: "/cart",
+    FOODITEM: "/categories/:id",
     RESTAURANT: "/restaurant/:id",
+    DETAILVIEW: "/detailView/:id",
+    CATEGORIES: "/categories",
     SEARCH: "/search/:selectedCity/:searchValue",
-    PRODUCT: "/product/:id",
-    USER: "/user",
-    ORDERS: "/orders",
     NOT_FOUND: "*",
 };

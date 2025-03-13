@@ -151,6 +151,7 @@ const OrderOnline = () => {
     const filteredItems = Object.values(allItems).flat().filter(item => item.category === selectedCategory);
     return (
         <>
+
             <Box sx={{
                 marginInline: {
                     lg: '160px',
@@ -248,18 +249,46 @@ const OrderOnline = () => {
                                 const itemInCart = itemsInCart.find((cartItem) => cartItem.id === item.id); // Get the item from cart
 
                                 return (
-                                    <Stack
+                                    <Box
                                         key={item.id}
                                         sx={{
-                                            flexDirection: { lg: 'row', sm: 'row', md: 'row', '@media (max-width:830px)': 'column', '@media (max-width:780px)': 'column' },
+                                            display: 'grid',
+                                            gridTemplateColumns: '300px 3fr', // Horizontal layout for larger screens
+
+                                            '@media (max-width: 1206px)': {
+                                                gridTemplateColumns: '300px 3fr', // Horizontal layout for larger screens
+                                            },
+
+                                            '@media (max-width: 830px)': {
+                                                gridTemplateRows: '170px 3fr', // Adjust the rows layout for smaller screens
+                                                padding: '10px',
+                                                marginBlock: 0,
+                                            },
+                                            '@media (max-width: 780px)': {
+                                                gridTemplateRows: '170px 3fr',
+                                            },
+                                            '@media (max-width: 700px)': {
+                                                gridTemplateColumns: '1fr', // Change to vertical layout (single column)
+                                                gridTemplateRows: 'auto',   // Auto-adjust rows for vertical layout
+                                                padding: '20px',
+                                            },
+                                            '@media (max-width: 600px)': {
+                                                gridTemplateColumns: '1fr', // Change to vertical layout (single column)
+                                                gridTemplateRows: 'auto',   // Auto-adjust rows for vertical layout
+                                                padding: '20px',
+                                            },
                                             marginBlock: 2,
                                             borderRadius: '10px',
+                                            padding: '20px',
                                             boxShadow: '0 6px 12px 1px rgba(0, 0, 0, 0.1)',
-                                            '@media (max-width:600px)': {
-                                                padding: '20px'
-                                            },
                                         }}
                                     >
+
+
+
+
+
+
 
                                         <Box
                                             component="img"
@@ -335,13 +364,13 @@ const OrderOnline = () => {
                                             </Box>
 
                                         </Stack>
-                                    </Stack>
+                                    </Box>
                                 );
                             })}
                         </Box>
                     </Stack>
                 </Stack>
-            </Box>
+            </Box >
         </>
     );
 };
