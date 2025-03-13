@@ -27,8 +27,6 @@ const cartSlice = createSlice({
                 // If the item exists and quantity is less than 5, increase the quantity
                 if (existingItem.quantity < 5) {
                     existingItem.quantity += 1;
-                } else {
-                    toast.error('Maximum quantity of 5 reached for this item!');
                 }
 
             } else {
@@ -46,10 +44,19 @@ const cartSlice = createSlice({
         },
         decrementQuantity: (state, action: PayloadAction<number>) => {
             const item = state.items.find((item) => item.id === action.payload);
-            if (item && item.quantity > 1) {
+            if (item && item.quantity > 0) {
                 item.quantity -= 1;
             }
+
+
+            // Automatically remove the item if its quantity becomes 0
+            if (item && item.quantity === 0) {
+                state.items = state.items.filter((item) => item.id !== action.payload);
+                toast.error(`${item.name} has been removed from your cart.`);
+            }
         },
+
+
     },
 });
 

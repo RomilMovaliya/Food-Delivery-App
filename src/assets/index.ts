@@ -93,6 +93,23 @@ import dish2 from '../assets/Images/dish2.jpg'
 import dish3 from '../assets/Images/dish3.jpg'
 
 
+import headerItem1 from '../assets/Images/DetailViewImg/headerItem1.png'
+import headerItem2 from '../assets/Images/DetailViewImg/headerItem2.png'
+import headerItem3 from '../assets/Images/DetailViewImg/headerItem3.png'
+import mcdHeader1 from '../assets/Images/DetailViewImg/mcdHeader1.jpg'
+import mcdHeader2 from '../assets/Images/DetailViewImg/mcdHeader2.jpg'
+import mcdHeader3 from '../assets/Images/DetailViewImg/mcdHeader3.jpg'
+import burgurKing1 from '../assets/Images/CategoriesImg/burgerKing.jpg'
+import burgurKing2 from '../assets/Images/CategoriesImg/burgerKing2.jpg'
+import burgurKing3 from '../assets/Images/CategoriesImg/burgerKing3.jpg'
+import starbuckImg1 from '../assets/Images/CategoriesImg/starbuckImg1.jpg'
+import starbuckImg2 from '../assets/Images/CategoriesImg/starbuckImg2.jpg'
+import starbuckImg3 from '../assets/Images/CategoriesImg/starbuckImg3.jpg'
+import kfc1 from '../assets/Images/CategoriesImg/kfc1.webp'
+import kfc2 from '../assets/Images/CategoriesImg/kfc2.webp'
+import kfc3 from '../assets/Images/CategoriesImg/kfc3.webp'
+
+
 
 
 export {
@@ -114,7 +131,11 @@ export {
     piz1, piz2, piz3, piz4, piz5, piz6, piz7, piz8, piz9,
     dessert1, dessert2, dessert3, dessert4, dessert5,
 
-    cuisineImg1, cuisineImg2, cuisineImg3, dish1, dish2, dish3
+    cuisineImg1, cuisineImg2, cuisineImg3, dish1, dish2, dish3,
+
+
+    headerItem1, headerItem2, headerItem3, mcdHeader1, mcdHeader2, mcdHeader3, burgurKing1,
+    burgurKing2, burgurKing3, starbuckImg1, starbuckImg2, starbuckImg3, kfc1, kfc2, kfc3
 };
 
 

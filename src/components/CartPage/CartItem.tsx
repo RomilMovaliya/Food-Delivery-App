@@ -13,14 +13,31 @@ const CartItem = () => {
 
     const handleIncrement = (id: number) => {
         dispatch(incrementQuantity(id));
+        const updatedItem = items.find((item) => item.id === id);
+        if (updatedItem) {
+            handleQuantityChange(updatedItem); // This ensures the item is removed if the quantity is 0
+        }
     };
 
     const handleDecrement = (id: number) => {
         dispatch(decrementQuantity(id));
+        setTimeout(() => {  // Ensure the state is updated before checking the quantity
+            const updatedItem = items.find((item) => item.id === id);
+            if (updatedItem) {
+                handleQuantityChange(updatedItem);  // Remove item if quantity is 0
+            }
+        }, 0);
     };
 
     const handleRemoveItem = (id: number) => {
         dispatch(removeItem(id));
+    };
+
+    // Remove item automatically when quantity reaches 0
+    const handleQuantityChange = (item: { id: number; quantity: number }) => {
+        if (item.quantity === 0) {
+            dispatch(removeItem(item.id)); // Remove item from cart when quantity is 0
+        }
     };
 
     // Calculate the total price of all items in the cart

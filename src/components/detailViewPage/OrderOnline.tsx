@@ -120,7 +120,7 @@ const OrderOnline = () => {
 
     const handleDecrement = (id: number) => {
         dispatch(decrementQuantity(id)); // Decrement quantity of item in cart
-        toast.success('item removed from cart')
+
     };
 
     const [allrecommendedItems, setAllRecommendedItems] = useState<RecommendedItems[]>([]);
@@ -344,7 +344,7 @@ const OrderOnline = () => {
 
                                             <Box width='100%'>
                                                 {/* Conditional rendering for Add to Cart or quantity adjustment */}
-                                                {!itemInCart ? (
+                                                {!itemInCart || itemInCart.quantity === 0 ? (
                                                     <Button
                                                         variant="contained"
                                                         sx={{ backgroundColor: '#FFA500', color: 'white', width: '100%' }}

@@ -363,15 +363,15 @@ export const itemsData = [
         category: 'Garlic Bread'
     },
 
-    // {
-    //     id: 83,
-    //     name: 'Cheesy Garlic Bread',
-    //     image: bread2,
-    //     price: 110,
-    //     description: 'A flavorful twist on the classic, topped with melted cheese and a rich garlic butter mix.',
-    //     quantity: 1,
-    //     category: 'Garlic Bread'
-    // },
+    {
+        id: 83,
+        name: 'Cheesy Garlic Bread',
+        image: bread2,
+        price: 110,
+        description: 'A flavorful twist on the classic, topped with melted cheese and a rich garlic butter mix.',
+        quantity: 1,
+        category: 'Garlic Bread'
+    },
 
     {
         id: 84,
@@ -393,15 +393,15 @@ export const itemsData = [
         category: 'Garlic Bread'
     },
 
-    // {
-    //     id: 86,
-    //     name: 'Spicy Garlic Bread',
-    //     image: bread5,
-    //     price: 110,
-    //     description: 'For those who love a little heat, this garlic bread is spiced up with chili flakes and a zesty garlic spread.',
-    //     quantity: 1,
-    //     category: 'Garlic Bread'
-    // },
+    {
+        id: 86,
+        name: 'Spicy Garlic Bread',
+        image: bread5,
+        price: 110,
+        description: 'For those who love a little heat, this garlic bread is spiced up with chili flakes and a zesty garlic spread.',
+        quantity: 1,
+        category: 'Garlic Bread'
+    },
 
     {
         id: 87,
@@ -435,15 +435,15 @@ export const itemsData = [
     },
 
     // here below 3 data is commented due to image size issue/
-    // {
-    //     id: 90,
-    //     name: 'Garlic & Olive Oil Bread',
-    //     image: cafesides2,
-    //     price: 110,
-    //     description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
-    //     quantity: 1,
-    //     category: 'Cafe Sides'
-    // },
+    {
+        id: 90,
+        name: 'Garlic & Olive Oil Bread',
+        image: cafesides2,
+        price: 110,
+        description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
+        quantity: 1,
+        category: 'Cafe Sides'
+    },
 
     {
         id: 91,
@@ -455,25 +455,25 @@ export const itemsData = [
         category: 'Cafe Sides'
     },
 
-    // {
-    //     id: 92,
-    //     name: 'Garlic & Olive Oil Bread',
-    //     image: cafesides4,
-    //     price: 110,
-    //     description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
-    //     quantity: 1,
-    //     category: 'Cafe Sides'
-    // },
+    {
+        id: 92,
+        name: 'Garlic & Olive Oil Bread',
+        image: cafesides4,
+        price: 110,
+        description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
+        quantity: 1,
+        category: 'Cafe Sides'
+    },
 
-    // {
-    //     id: 93,
-    //     name: 'Garlic & Olive Oil Bread',
-    //     image: cafesides5,
-    //     price: 110,
-    //     description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
-    //     quantity: 1,
-    //     category: 'Cafe Sides'
-    // },
+    {
+        id: 93,
+        name: 'Garlic & Olive Oil Bread',
+        image: cafesides5,
+        price: 110,
+        description: 'A rustic garlic bread drizzled with high-quality olive oil and roasted to a perfect crisp.',
+        quantity: 1,
+        category: 'Cafe Sides'
+    },
 
     {
         id: 94,
