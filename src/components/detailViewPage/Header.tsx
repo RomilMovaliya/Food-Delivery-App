@@ -73,12 +73,10 @@ const Header = () => {
 
 
     useEffect(() => {
-        const barndId = parseInt(id);
+        const barndId = parseInt(id || '0');
         const brand = headerImg.find((item) => barndId === item.id);
         setSelectedBrand(brand || null);
     }, [id]);
-
-
 
 
     return (

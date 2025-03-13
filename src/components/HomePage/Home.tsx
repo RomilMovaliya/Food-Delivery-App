@@ -1,9 +1,32 @@
-import { Box, Container, Grid, InputAdornment, MenuItem, Select, TextField, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Container, Grid, InputAdornment, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import image1 from '../../assets/Images/image1.jpg'
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router';
 
 const Home: React.FC = () => {
+
+    const [selectedCity, setSelectedCity] = useState("Surat");
+    const [searchValue, setSearchValue] = useState("");
+
+    const navigate = useNavigate();
+
+    const handleCityChange = (event: SelectChangeEvent) => {
+        setSelectedCity(event.target.value || "Surat");
+    };
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(event.target.value);
+    };
+
+    // Function to handle the Enter key press
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter" && searchValue.trim()) {
+            // Navigate to the URL based on the search value
+            navigate(`/search/${selectedCity}/${searchValue}`);
+        }
+    };
+
     return (
         <>
             <section style={{
@@ -101,6 +124,8 @@ const Home: React.FC = () => {
                                 }}
                             >
                                 <Select
+                                    value={selectedCity}
+                                    onChange={handleCityChange}
                                     defaultValue="Surat"
                                     sx={{
                                         backgroundColor: 'white',
@@ -127,6 +152,8 @@ const Home: React.FC = () => {
                                 </Select>
 
                                 <TextField
+                                    onChange={handleSearchChange}
+                                    onKeyDown={handleKeyDown}
                                     size="small"
                                     variant="outlined"
                                     placeholder="Search for restaurant, cuisine, place"

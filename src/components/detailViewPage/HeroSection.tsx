@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import brand1 from '../../assets/Images/CategoriesImg/brand1.png';
-import brand2 from '../../assets/Images/CategoriesImg/brand2.png';
-import brand3 from '../../assets/Images/CategoriesImg/brand3.png';
-import brand4 from '../../assets/Images/CategoriesImg/brand4.png';
-import brand5 from '../../assets/Images/CategoriesImg/brand5.png';
-import brand6 from '../../assets/Images/CategoriesImg/brand6.png';
+import {
+    brand1, brand2, brand3, brand4, brand5, brand6
+} from '../../assets/index';
 import { Box, Button, Stack, Typography } from '@mui/material'
 import { useParams } from 'react-router';
-
+import { restaurantsData } from '../../data/RestaurantData';
 
 interface ItemDetailType {
     id: number,
@@ -16,7 +13,9 @@ interface ItemDetailType {
     item: string,
     cost: string,
     area: string,
-    time: string
+    time: string,
+    category?: string
+
 }
 
 
@@ -87,67 +86,7 @@ const HeroSection: React.FC = () => {
         setSelectedIndex(index);  // Set the selected index when a button is clicked
     }
 
-    const ItemDetail: ItemDetailType[] = [
-        {
-            id: 1,
-            image: brand1,
-            name: `La Pino'z Pizza`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `700rs per 2 person`,
-            area: `Vesu, Surat`,
-            time: `11am - 11pm`
-        },
 
-        {
-            id: 2,
-            image: brand2,
-            name: `McDonald's`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `600rs per 2 person`,
-            area: `adajan, Surat`,
-            time: `10am - 11pm`
-        },
-
-        {
-            id: 3,
-            image: brand3,
-            name: `Starbucks`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `500rs per 2 person`,
-            area: `varracha, Surat`,
-            time: `10am - 9pm`
-        },
-
-        {
-            id: 4,
-            image: brand4,
-            name: `Burger King`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `500rs per 2 person`,
-            area: `yogichok, Surat`,
-            time: `11am - 8pm`
-        },
-
-        {
-            id: 5,
-            image: brand5,
-            name: `KFC`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `500rs per 2 person`,
-            area: `varracha, Surat`,
-            time: `10am - 11pm`
-        },
-
-        {
-            id: 6,
-            image: brand6,
-            name: `Coffee Culture`,
-            item: `Pizza, Fast Food, Beverages`,
-            cost: `500rs per 2 person`,
-            area: `parvat patiya, Surat`,
-            time: `10am - 12pm`
-        }
-    ];
 
     const isOpenNow = () => {
         const currentTime = new Date();
@@ -167,7 +106,7 @@ const HeroSection: React.FC = () => {
 
     useEffect(() => {
         const barndId = parseInt(id || '0');
-        const brand = ItemDetail.find((item) => barndId === item.id);
+        const brand = restaurantsData.find((item) => barndId === item.id);
         setSelectedBrand(brand || null);
     }, [id]);
 

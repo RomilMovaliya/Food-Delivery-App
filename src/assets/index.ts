@@ -110,6 +110,13 @@ import kfc2 from '../assets/Images/CategoriesImg/kfc2.webp'
 import kfc3 from '../assets/Images/CategoriesImg/kfc3.webp'
 
 
+import brand1 from '../assets/Images/CategoriesImg/brand1.png';
+import brand2 from '../assets/Images/CategoriesImg/brand2.png';
+import brand3 from '../assets/Images/CategoriesImg/brand3.png';
+import brand4 from '../assets/Images/CategoriesImg/brand4.png';
+import brand5 from '../assets/Images/CategoriesImg/brand5.png';
+import brand6 from '../assets/Images/CategoriesImg/brand6.png';
+
 
 
 export {
@@ -135,7 +142,11 @@ export {
 
 
     headerItem1, headerItem2, headerItem3, mcdHeader1, mcdHeader2, mcdHeader3, burgurKing1,
-    burgurKing2, burgurKing3, starbuckImg1, starbuckImg2, starbuckImg3, kfc1, kfc2, kfc3
+    burgurKing2, burgurKing3, starbuckImg1, starbuckImg2, starbuckImg3, kfc1, kfc2, kfc3,
+
+    brand1, brand2, brand3, brand4, brand5, brand6
+
+
 };
 
 

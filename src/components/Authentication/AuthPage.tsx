@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, TextField, Typography } from '@mui/material';
 import { FormEvent, useState } from 'react';
 import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
@@ -28,8 +28,8 @@ const AuthPage = () => {
     const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State to control Lottie popup visibility
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [showAlert, setShowAlert] = useState(false);
 
-    // const notify = () => toast("Wow so easy!");
 
 
     const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -74,12 +74,18 @@ const AuthPage = () => {
             // Handle login logic
             const user = users.find(user => user.email === email && user.password === password);
             if (user) {
-                alert('Login successful!');
+                setShowAlert(true); // Show the success alert
+
                 dispatch(setUsers(users));
                 dispatch(setCurrentUser(user));
 
                 window.localStorage.setItem('isLoggedIn', 'true');
                 navigate('/profile');
+
+                //Optionally hide the alert after a few seconds
+                setTimeout(() => {
+                    setShowAlert(false); // Hide alert after 3 seconds
+                }, 3000);
             } else {
                 alert('Invalid email or password.');
             }
@@ -94,6 +100,7 @@ const AuthPage = () => {
                 marginInline: '30px'
             }
         }}>
+
 
 
 
@@ -187,6 +194,14 @@ const AuthPage = () => {
                     >
                         {isRegister ? 'Already have an account? Login' : 'Don\'t have an account? Register'}
                     </Button>
+
+                    {/* Conditional Alert for successful login */}
+                    {showAlert && (
+                        <Alert severity="success">Login successful!</Alert>
+
+                    )}
+
+
                 </>
 
             )}

@@ -14,6 +14,7 @@ import AuthPage from './components/Authentication/AuthPage';
 import ProfilePage from './components/Authentication/ProfilePage';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { ROUTES } from '../src/constant/constant'
+import SearchPage from './components/HomePage/SearchPage';
 
 function App() {
   const [navbarColor, setNavbarColor] = useState('transparent'); // Default color
@@ -26,6 +27,8 @@ function App() {
         <Hero />
         <Routes>
           <Route path="/" element={<HomePage />} />
+
+          <Route path={ROUTES.SEARCH} element={<SearchPage />} />
           <Route path={ROUTES.RESTAURANT} element={<Restaurants />} />
           <Route path={ROUTES.CATEGORIES} element={<Categories />} />
           <Route path={ROUTES.DETAILVIEW} element={<DetailView />} />
