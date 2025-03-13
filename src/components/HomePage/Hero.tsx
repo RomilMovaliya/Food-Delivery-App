@@ -6,7 +6,7 @@ import React from 'react';
 import { useLocation } from 'react-router';
 import { AccountCircle } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../Redux/store/store';
+import { RootState } from '../../store/store';
 
 
 const Hero: React.FC = () => {
@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
 
     const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
 
-    const { isLoggedIn } = useSelector((state) => state.user);
+    const { isLoggedIn } = useSelector((state: RootState) => state.user);
 
     let authFlag = false;
     let redirectVar = '/auth';

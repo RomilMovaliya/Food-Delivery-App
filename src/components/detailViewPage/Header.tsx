@@ -1,4 +1,4 @@
-import { Box, Grid, Grid2, Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { useEffect, useState } from 'react'
 import {
     headerItem1, headerItem2, headerItem3, mcdHeader1, mcdHeader2, mcdHeader3, burgurKing1,

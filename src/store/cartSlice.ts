@@ -11,10 +11,12 @@ interface CartItem {
 
 interface CartState {
     items: CartItem[];
+    quantity: number;
 }
 
 const initialState: CartState = {
     items: [],
+    quantity: 0
 };
 
 const cartSlice = createSlice({
@@ -27,6 +29,7 @@ const cartSlice = createSlice({
                 // If the item exists and quantity is less than 5, increase the quantity
                 if (existingItem.quantity < 5) {
                     existingItem.quantity += 1;
+
                 }
 
             } else {

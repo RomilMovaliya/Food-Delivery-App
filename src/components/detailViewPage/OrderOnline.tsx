@@ -1,8 +1,8 @@
-import { Box, Button, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
+import { Box, Button, ListItemText, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, decrementQuantity, incrementQuantity } from '../../Redux/features/cartSlice';
-import { RootState } from '../../Redux/store/store';
+import { addItem, decrementQuantity, incrementQuantity } from '../../store/cartSlice';
+import { RootState } from '../../store/store';
 import { itemsData } from '../../data/OrderOnlineData';
 import { useParams } from 'react-router';
 import { toast } from 'react-toastify';
@@ -101,10 +101,10 @@ const OrderOnline = () => {
 
 
     const itemsInCart = useSelector((state: RootState) => state.cart.items);
-    const { isLoggedIn } = useSelector((state) => state.user);
+    const { isLoggedIn } = useSelector((state: RootState) => state.user);
 
 
-    const handleAddToCart = (item: { id: number; name: string; price: number, image: string }) => {
+    const handleAddToCart = (item: { id: number; name: string; price: number, image: string, quantity: number }) => {
 
         if (!isLoggedIn) {
             toast.error('Hey there! Please login to proceed.');
@@ -117,13 +117,13 @@ const OrderOnline = () => {
             toast.error('Maximum quantity of 5 reached for this item!');
         } else {
             dispatch(addItem(item)); // Add item to cart
-            toast.success('Item added to cart successfully!');
+            toast.success(`You’ve added ${item.name} to your cart. Time to dig in!!`);
         }
     };
 
     const handleIncrement = (id: number) => {
         dispatch(incrementQuantity(id)); // Increment quantity of item in cart
-        toast.success('item added successfully')
+
     };
 
     const handleDecrement = (id: number) => {
@@ -134,7 +134,7 @@ const OrderOnline = () => {
     const [allrecommendedItems, setAllRecommendedItems] = useState<RecommendedItems[]>([]);
 
     useEffect(() => {
-        const brandId = parseInt(id);
+        const brandId = parseInt(id || '0');
         if (recommendedItems[brandId]) {
             setAllRecommendedItems(recommendedItems[brandId]);
             // Set the default category after recommended items are loaded
@@ -195,7 +195,7 @@ const OrderOnline = () => {
                             <Button
                                 key={index}
 
-                                selected={selectedIndex === index}
+                                // selected={selectedIndex === index}
                                 onClick={() => handleListItemClick(index, item.category)}
                                 sx={{
                                     minWidth: {
@@ -253,7 +253,7 @@ const OrderOnline = () => {
 
                         {/* Recommended content */}
                         <Box marginTop="10px" marginInline="70px" sx={{ '@media (max-width:1090px)': { marginInline: '10px' } }}>
-                            {filteredItems.map((item, idx) => {
+                            {filteredItems.map((item) => {
                                 const itemInCart = itemsInCart.find((cartItem) => cartItem.id === item.id); // Get the item from cart
 
                                 return (

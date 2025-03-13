@@ -1,8 +1,7 @@
 import { Box, Button, Stack, TextField, Typography, Grid } from '@mui/material'
-import cartImg from '../../assets/Images/CartImg/cartImg.png'
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../Redux/store/store';
-import { decrementQuantity, incrementQuantity, removeItem } from '../../Redux/features/cartSlice';
+import { RootState } from '../../store/store';
+import { decrementQuantity, incrementQuantity, removeItem } from '../../store/cartSlice';
 import Lottie from 'lottie-react';
 import emptyCartAnimation from '../../assets/Images/EmptyBox.json';
 
@@ -21,12 +20,10 @@ const CartItem = () => {
 
     const handleDecrement = (id: number) => {
         dispatch(decrementQuantity(id));
-        setTimeout(() => {  // Ensure the state is updated before checking the quantity
-            const updatedItem = items.find((item) => item.id === id);
-            if (updatedItem) {
-                handleQuantityChange(updatedItem);  // Remove item if quantity is 0
-            }
-        }, 0);
+        const updatedItem = items.find((item) => item.id === id);
+        if (updatedItem) {
+            handleQuantityChange(updatedItem); // This ensures the item is removed if the quantity is 0
+        }
     };
 
     const handleRemoveItem = (id: number) => {

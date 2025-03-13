@@ -1,17 +1,23 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUsers, setCurrentUser } from '../../Redux/features/authSlice';
+import { setUsers, setCurrentUser } from '../../store/authSlice';
 import Lottie from 'lottie-react';
 import registersuccessAnimation from '../../assets/Images/registersuccessAnimation.json';
 import { toast } from 'react-toastify';
 // Utility function to get users from localStorage
-const getUsersFromLocalStorage = () => {
+const getUsersFromLocalStorage = (): UserType[] => {
     const storedData = window.localStorage.getItem('users');
     return storedData ? JSON.parse(storedData) : [];
 };
+
+interface UserType {
+    name: string,
+    email: string,
+    password: string
+}
 
 const AuthPage = () => {
     const [email, setEmail] = useState('');
@@ -26,9 +32,10 @@ const AuthPage = () => {
     // const notify = () => toast("Wow so easy!");
 
 
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const users = getUsersFromLocalStorage(); // Get existing users from localStorage
+        const users: UserType[] = getUsersFromLocalStorage(); // Get existing users from localStorage
+        console.log(typeof users);
 
         if (isRegister) {
             if (password !== confirmPassword) {
@@ -38,7 +45,7 @@ const AuthPage = () => {
             }
 
             // Check if email already exists
-            const existingUser = users.find(user => user.email === email);
+            const existingUser = users.find((user: UserType) => user.email === email);
             if (existingUser) {
                 alert('User with this email already exists!');
                 return;

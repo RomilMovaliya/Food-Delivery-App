@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
 
 
     useEffect(() => {
-        const barndId = parseInt(id);
+        const barndId = parseInt(id || '0');
         const brand = brandImg.find((item) => barndId === item.id);
         setSelectedBrandImg(brand || null);
     }, [id]);
@@ -83,7 +83,7 @@ const HeroSection: React.FC = () => {
     const [selectedBrand, setSelectedBrand] = useState<ItemDetailType | null>(null);
 
 
-    const handleButtonClick = (index) => {
+    const handleButtonClick = (index: number) => {
         setSelectedIndex(index);  // Set the selected index when a button is clicked
     }
 
@@ -166,7 +166,7 @@ const HeroSection: React.FC = () => {
 
 
     useEffect(() => {
-        const barndId = parseInt(id);
+        const barndId = parseInt(id || '0');
         const brand = ItemDetail.find((item) => barndId === item.id);
         setSelectedBrand(brand || null);
     }, [id]);

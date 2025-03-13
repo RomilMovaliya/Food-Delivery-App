@@ -1,14 +1,15 @@
 // src/pages/ProfilePage.tsx
 
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, resetPassword, setUsers } from '../../Redux/features/authSlice';
+import { logout, setUsers } from '../../store/authSlice';
+import { RootState } from '../../main';
 
 const ProfilePage = () => {
-    const { currentUser, isLoggedIn } = useSelector((state) => state.user);
+    const { currentUser, isLoggedIn } = useSelector((state: RootState) => state.user);
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');

@@ -8,8 +8,8 @@ import fc6 from '../../assets/Images/FoodCategoryImg/FC6.png';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../Redux/store/store';
-import { addItem, incrementQuantity, decrementQuantity } from '../../Redux/features/cartSlice';
+import { RootState } from '../../store/store';
+import { addItem, incrementQuantity, decrementQuantity } from '../../store/cartSlice';
 import { toast } from 'react-toastify';
 
 const FoodItem = () => {
@@ -20,9 +20,9 @@ const FoodItem = () => {
     const getItemFromCart = (id: number) => {
         return itemsInCart.find((item) => item.id === id);
     };
-    const { isLoggedIn } = useSelector((state) => state.user);
+    const { isLoggedIn } = useSelector((state: RootState) => state.user);
 
-    const handleAddToCart = (item: { id: number; name: string; price: number; quantity: number }) => {
+    const handleAddToCart = (item: { id: number; name: string; price: number; image: string }) => {
 
         if (!isLoggedIn) {
             toast.error('Hey there! Please login to proceed.');
@@ -120,7 +120,7 @@ const FoodItem = () => {
     ];
 
     useEffect(() => {
-        const brandId = parseInt(id);
+        const brandId = parseInt(id || '0');
         const brand = foodItem.find((item) => brandId === item.id);
         setSelectedFoodItem(brand || null);
     }, [id]);
