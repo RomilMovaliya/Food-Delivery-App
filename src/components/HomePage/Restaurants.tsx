@@ -143,7 +143,7 @@ const Restaurants = () => {
   ];
 
   useEffect(() => {
-    const brandId = parseInt(id);
+    const brandId = parseInt(id || '0');
     const brandIndex = brandId - 1;
 
     // Check if the brandIndex is valid and set the selected restaurant group accordingly

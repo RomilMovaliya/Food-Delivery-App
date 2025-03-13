@@ -3,6 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router';
 import { restaurantsData } from '../../data/RestaurantData';
 import { itemsData } from '../../data/OrderOnlineData';
 import { Box, Typography, Stack, Button } from '@mui/material';
+import { AllItems, ItemDetailType } from "../../types/type";
+
+
 
 const SearchPage = () => {
     const { selectedCity, searchValue } = useParams<{
@@ -10,7 +13,6 @@ const SearchPage = () => {
         searchValue: string;
     }>();
 
-    const navigate = useNavigate();
 
     let matchedRestaurant: ItemDetailType[] = [];
     let matchedMealItems: AllItems[] = [];
@@ -38,7 +40,7 @@ const SearchPage = () => {
             {matchedRestaurant.length > 0 && (
                 <Box
                     mt={12}
-                    marginInline={5}
+                    marginInline={15}
                     marginBottom={5}
                     sx={{
                         display: 'flex',
@@ -126,7 +128,7 @@ const SearchPage = () => {
             {matchedMealItems.length > 0 && (
                 <Box
                     mt={2}
-                    marginInline={5}
+                    marginInline={15}
                     marginBottom={5}
                     sx={{
                         display: 'flex',
