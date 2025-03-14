@@ -26,7 +26,7 @@ export const restaurantsData = [
 
     {
         id: 3,
-        image: brand3,
+        image: brand4,
         name: `Starbucks`,
         item: `Pizza, Fast Food, Beverages`,
         cost: `500rs per 2 person`,
@@ -37,7 +37,7 @@ export const restaurantsData = [
 
     {
         id: 4,
-        image: brand4,
+        image: brand3,
         name: `Burger King`,
         item: `Pizza, Fast Food, Beverages`,
         cost: `500rs per 2 person`,
@@ -65,6 +65,6 @@ export const restaurantsData = [
         cost: `500rs per 2 person`,
         area: `parvat patiya, Surat`,
         time: `10am - 12pm`,
-        category: 'tea'
+        category: 'coffee'
     }
 ];

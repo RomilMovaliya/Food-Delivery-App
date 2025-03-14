@@ -289,7 +289,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Iconic double-decker burger with special sauce, lettuce, cheese, pickles, and onions.',
                 price: "₹260",
-                category: "Burgers"
+                category: "Burger"
             },
             {
                 image: burg2,
@@ -297,7 +297,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Flame-grilled beef patty topped with spicy jalapeños, onions, and a zesty sauce.',
                 price: "₹220",
-                category: "Burgers"
+                category: "Burger"
             },
             {
                 image: burg3,
@@ -305,7 +305,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Double beef patties, crunchy pickles, cheese, lettuce, and a special sauce on a soft bun.',
                 price: "₹270",
-                category: "Burgers"
+                category: "Burger"
             },
             {
                 image: burg4,
@@ -313,7 +313,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Spicy double-breaded chicken fillet with fresh lettuce, tomato, and mayo on a toasted bun.',
                 price: "₹240",
-                category: "Burgers"
+                category: "Burger"
             },
 
             {
@@ -322,7 +322,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Plant-based patty with all the classic Whopper toppings.',
                 price: "₹230",
-                category: "Burgers"
+                category: "Burger"
             },
             {
                 image: burg6,
@@ -330,7 +330,7 @@ const PopularRecipes: React.FC = () => {
                 time: '10 min',
                 description: 'Flame-grilled beef patty topped with crispy bacon, smoky BBQ sauce, and fresh lettuce.',
                 price: "₹230",
-                category: "Burgers"
+                category: "Burger"
             }
         ]
     ]
