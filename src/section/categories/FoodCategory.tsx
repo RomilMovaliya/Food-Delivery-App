@@ -6,7 +6,6 @@ import fc3 from '../../assets/Images/FoodCategoryImg/FC3.png';
 import fc5 from '../../assets/Images/FoodCategoryImg/FC4.png';
 import fc4 from '../../assets/Images/FoodCategoryImg/FC5.png';
 import fc6 from '../../assets/Images/FoodCategoryImg/FC6.png';
-import FoodItem from './FoodItem';
 import { Link } from 'react-router';
 
 

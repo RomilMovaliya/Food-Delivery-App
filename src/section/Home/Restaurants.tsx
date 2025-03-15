@@ -1,4 +1,4 @@
-import { Box, Grid, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import brand1 from '../../assets/Images/CategoriesImg/brand1.png'
 import brand2 from '../../assets/Images/CategoriesImg/brand2.png'
 import brand4 from '../../assets/Images/CategoriesImg/brand3.png'

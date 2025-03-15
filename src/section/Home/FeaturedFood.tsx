@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import largerpic1 from '../../assets/Images/larger-pic1.jpg'
 
 const FeaturedFood = () => {
