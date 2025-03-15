@@ -3,9 +3,9 @@ import { FormEvent, useState } from 'react';
 import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUsers, setCurrentUser } from '../../store/authSlice';
+import { setUsers, setCurrentUser } from '../store/authSlice';
 import Lottie from 'lottie-react';
-import registersuccessAnimation from '../../assets/Images/registersuccessAnimation.json';
+import registersuccessAnimation from '../assets/Images/registersuccessAnimation.json';
 import { toast } from 'react-toastify';
 // Utility function to get users from localStorage
 const getUsersFromLocalStorage = (): UserType[] => {

@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { yellow } from '@mui/material/colors';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, setUsers } from '../../store/authSlice';
-import { RootState } from '../../main';
+import { logout, setUsers } from '../store/authSlice';
+import { RootState } from '../main';
 
 const ProfilePage = () => {
     const { currentUser, isLoggedIn } = useSelector((state: RootState) => state.user);

@@ -2,24 +2,21 @@
 
 import { useState } from 'react';
 import './App.css'
-import Categories from './components/categoriesPage/Categories';
-import Hero from './components/HomePage/Hero';
-import HomePage from './components/HomePage/HomePage'
+import Categories from './pages/Categories';
+import Hero from './section/Home/Hero';
+import HomePage from './pages/HomePage'
 import { BrowserRouter, Route, Routes } from "react-router";
-import DetailView from './components/detailViewPage/detailView';
-import CartItem from './components/CartPage/CartItem';
-import FoodItem from './components/categoriesPage/FoodItem';
-import Restaurants from './components/HomePage/Restaurants';
-import AuthPage from './components/Authentication/AuthPage';
-import ProfilePage from './components/Authentication/ProfilePage';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
+import DetailView from './pages/detailView';
+import CartItem from './pages/CartItem';
+import FoodItem from './section/categories/FoodItem';
+import Restaurants from './section/Home/Restaurants';
+import AuthPage from './pages/AuthPage';
+import ProfilePage from './pages/ProfilePage';
+import { Bounce, ToastContainer } from 'react-toastify';
 import { ROUTES } from '../src/constant/constant'
-import SearchPage from './components/HomePage/SearchPage';
+import SearchPage from './section/Home/SearchPage';
 
 function App() {
-  const [navbarColor, setNavbarColor] = useState('transparent'); // Default color
-
-
 
   return (
     <>
@@ -41,6 +38,7 @@ function App() {
       </BrowserRouter>
 
       <ToastContainer
+        aria-label="notification"
         position="top-left"
         autoClose={5000}
         hideProgressBar={false}
