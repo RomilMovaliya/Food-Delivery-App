@@ -32,7 +32,7 @@ const OrderOnline = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState(''); // Default category
 
-    const [items, setItems] = useState<AllItems[]>([]);
+    // const [items, setItems] = useState<AllItems[]>([]);
 
     const handleListItemClick = (index: number, category: string) => {
         setSelectedIndex(index);
@@ -145,12 +145,12 @@ const OrderOnline = () => {
 
 
         // Set all items based on brandId
-        if (allItems[brandId]) {
+        /*if (allItems[brandId]) {
             setItems(allItems[brandId]);
         } else {
             setItems([]);
         }
-
+*/
     }, [id]);
 
 

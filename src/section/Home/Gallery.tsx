@@ -172,7 +172,7 @@
 // export default Gallery
 
 import { Box, IconButton, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import gridImg1 from '../../assets/Images/Rectangle 50.png';
 import gridImg2 from '../../assets/Images/Rectangle 51.png';
@@ -182,15 +182,15 @@ import gridImg5 from '../../assets/Images/Rectangle 54.png';
 import gridImg6 from '../../assets/Images/Rectangle 55.png';
 
 const Gallery: React.FC = () => {
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    }
+    // const handleClickOpen = () => {
+    //     setOpen(true);
+    // }
 
-    const handleClose = () => {
-        setOpen(false);
-    }
+    // const handleClose = () => {
+    //     setOpen(false);
+    // }
 
     return (
         <>
@@ -347,7 +347,7 @@ const Gallery: React.FC = () => {
                                 gap: '10px',
                                 alignItems: 'center',
                             }}>
-                                <IconButton onClick={handleClickOpen}>
+                                <IconButton >
                                     <InstagramIcon sx={{ fontSize: '24px', color: 'white' }} />
                                 </IconButton>
                                 <Typography variant="body1" sx={{

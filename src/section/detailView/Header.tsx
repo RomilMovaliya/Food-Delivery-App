@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/material'
 import { useEffect, useState } from 'react'
 import {
-    headerItem1, headerItem2, headerItem3, mcdHeader1, mcdHeader2, mcdHeader3, burgurKing1,
+    headerItem1, headerItem2, headerItem3, mcdHeader1, mcdHeader2, mcdHeader3,
     burgurKing2, burgurKing3, starbuckImg1, starbuckImg2, starbuckImg3, kfc1, kfc2, kfc3
 } from '../../assets/index';
 

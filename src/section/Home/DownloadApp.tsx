@@ -1,9 +1,8 @@
 import { Box, Typography } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import playstore from '../../assets/Images/playstore.png';
 import appstore from '../../assets/Images/appstore.png';
 import rectangle56 from '../../assets/Images/Rectangle 56.png';
-import { yellow } from '@mui/material/colors';
 
 const DownloadApp: React.FC = () => {
 

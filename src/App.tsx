@@ -1,6 +1,5 @@
 // jay dinesh bhagat na navkhand neja vada meldi maa.
 
-import { useState } from 'react';
 import './App.css'
 import Categories from './pages/Categories';
 import Hero from './section/Home/Hero';
@@ -42,13 +41,13 @@ function App() {
         position="top-left"
         autoClose={5000}
         hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
+        newestOnTop={true}
+        closeOnClick={true}
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
         transition={Bounce}
       />
 
