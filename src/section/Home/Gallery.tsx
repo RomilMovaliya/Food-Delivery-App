@@ -174,12 +174,10 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import React from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import gridImg1 from '../../assets/Images/Rectangle 50.png';
-import gridImg2 from '../../assets/Images/Rectangle 51.png';
-import gridImg3 from '../../assets/Images/Rectangle 52.png';
-import gridImg4 from '../../assets/Images/Rectangle 53.png';
-import gridImg5 from '../../assets/Images/Rectangle 54.png';
-import gridImg6 from '../../assets/Images/Rectangle 55.png';
+
+import {
+    gridImg1, gridImg2, gridImg3, gridImg4, gridImg5, gridImg6
+} from '../../assets/index';
 
 const Gallery: React.FC = () => {
     // const [open, setOpen] = useState(false);

@@ -1,8 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react'
-import playstore from '../../assets/Images/playstore.png';
-import appstore from '../../assets/Images/appstore.png';
-import rectangle56 from '../../assets/Images/Rectangle 56.png';
+import { playstore, appstore, rectangle56 } from '../../assets/index'
 
 const DownloadApp: React.FC = () => {
 

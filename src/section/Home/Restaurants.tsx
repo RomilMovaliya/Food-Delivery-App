@@ -1,10 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material'
-import brand1 from '../../assets/Images/CategoriesImg/brand1.png'
-import brand2 from '../../assets/Images/CategoriesImg/brand2.png'
-import brand4 from '../../assets/Images/CategoriesImg/brand3.png'
-import brand3 from '../../assets/Images/CategoriesImg/brand4.png'
-import brand5 from '../../assets/Images/CategoriesImg/brand5.png'
-import brand6 from '../../assets/Images/CategoriesImg/brand6.png'
+import { brand1, brand2, brand3, brand4, brand5, brand6 } from '../../assets/index';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'

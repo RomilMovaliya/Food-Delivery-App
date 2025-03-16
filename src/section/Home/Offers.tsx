@@ -1,7 +1,5 @@
 import React from 'react'
-import food1 from '../../assets/Images/food1.jpg'
-import food2 from '../../assets/Images/food2.jpg'
-import food3 from '../../assets/Images/food3.jpg'
+import { food1, food2, food3 } from '../../assets/index';
 import { Box, Typography } from '@mui/material'
 
 

@@ -6,7 +6,7 @@ import { Box, Typography, Stack, Button } from '@mui/material';
 import { AllItems, ItemDetailType } from "../../types/type";
 import Lottie from 'lottie-react';
 
-import noDataFoundAnimation from '../../assets/Images/noDataFound.json';
+import { noDataFoundAnimation } from '../../assets/index';
 
 const SearchPage = () => {
     const { selectedCity, searchValue } = useParams<{

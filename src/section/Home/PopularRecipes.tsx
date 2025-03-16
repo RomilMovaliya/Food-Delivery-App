@@ -7,8 +7,7 @@ import {
 } from '../../assets/index'
 
 
-import leftImg from '../../assets/Images/left-side.png';
-import rightImg from '../../assets/Images/right-side.png';
+import { leftImg, rightImg } from "../../assets/index";
 
 import { yellow } from "@mui/material/colors";
 import { ShoppingBag } from "@mui/icons-material";

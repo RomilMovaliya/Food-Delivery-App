@@ -1,10 +1,12 @@
 import { Box, Container, Grid, InputAdornment, MenuItem, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import image1 from '../../assets/Images/image1.jpg'
+import { image1 } from '../../assets/index';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router';
 
 const Home: React.FC = () => {
+
+
 
     const [selectedCity, setSelectedCity] = useState("Surat");
     const [searchValue, setSearchValue] = useState("");
