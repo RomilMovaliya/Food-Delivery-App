@@ -1,55 +1,28 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# AWS CloudFront with AWS S3: Optimizing Costs and Enhancing Food Delivery App Performance
+As we know that, When hosting a static site on GitHub Pages or any other platform at that time serving images efficiently is critical for performance and cost optimization. If you are working on Food Delivery Application which includes multiple high-resolution images, and hosting them directly on GitHub Pages or any other platform that can lead to slower load times and unnecessary bandwidth consumption. To optimize performance and reduce costs, For that we can offload images to Amazon S3 and distribute them via AWS CDN service called CloudFront, and a Content Delivery Network (CDN) that caches images closer to users worldwide. This will definitely improves speed and ensures scalability.    
+In this blog, we will dive deep into how to set up Amazon S3 and CloudFront to optimize image hosting for your food delivery app. We’ll also explore some important key terminologies.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### Primary Terminologies
+- `Reactjs` : Frontend liberary for making single page application.
+- `Github/Vercel` : Where we are hosting our static site.
+- `AWS S3` : Highly scalable and durable storage service provided by AWS.
+- `AWS CloudFront` : Content Delivery Network (CDN) service provided by AWS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Benefits for Food Delivery Apps:
+- ✅ Faster Page Loads – We can Reduce the latency for users across different regions by caching images and assets.
+- ✅ Lower Data Transfer Costs – Avoiding high charges for outbound data transfer of S3.
+- ✅ Better User Experience – During peak traffic hours, It provides high availability and responsiveness.
+- ✅ Scalability – It can Handle spikes in traffic efficiently with CloudFront’s caching capabilities.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-=======
-# Food-Delivery-App
-Creating a food delivery app using typescript and material UI within React Library.
+# 🛠️ Step-by-Step Guide: Integrating AWS S3 with CloudFront
+### Step 1: Upload Your Images to S3
+- First of all Login to AWS Console → Go to Amazon S3.
+- Then Click `Create bucket` and enter a unique bucket name (e.g., food-delivery-app-images).
+- Disable "Block Public Access" (since we want to serve images publicly).
+- Then Click on `Create bucket`.
+- Now Upload your Files or Folder
+- Open your S3 bucket and click `Upload`.
+- Select all images from your local folder (src/assets/Images/).
+- Click `Upload` to store them in S3.
 
