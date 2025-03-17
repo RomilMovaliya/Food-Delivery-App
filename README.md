@@ -19,8 +19,8 @@ In this blog, we will dive deep into how to set up Amazon S3 and CloudFront to o
 - ✅ Scalability – Handle spikes in traffic efficiently with CloudFront’s caching capabilities.
 
 # 🛠️ Step-by-Step Guide: Integrating AWS S3 with CloudFront
-### Step 1: Upload Images to S3
-- First of all, login to AWS Console → Go to Amazon S3.
+### Step 1: Setting-Up and Uploaing Images to S3
+- First of all, login to `AWS Console` → Go to `Amazon S3`.
 - Click `Create bucket` and enter a unique bucket name (e.g., noodletown-bucket).
 - Disable `Block Public Access` (since we want to serve images publicly).
 - Enabling the bucket version helps with accidental deletion protection, data recovery, and more (optional).
@@ -63,6 +63,12 @@ In this blog, we will dive deep into how to set up Amazon S3 and CloudFront to o
 - In `Origin access control`, create a new OAC then click on `Create` button.
 (If it is already present, directly select it.)
 
+- If you stuck on the term of `Origin access control`. so don't panic i am explaining about that,
+just divide the sentence into the word,
+- `Origin` : It refers the source server where our images are stored. 
+- `access control` : It refers the permissions and rules that determine who or what can access the resources that are stored in the s3.
+- `Origin access control` : Now it refers the set of rule or permission that define how access is granted to the origin.
+  
 ![Screenshot10.JPG](https://github.com/RomilMovaliya/Food-Delivery-App/blob/main/DocumentationStuff/Screenshot%20(763).png)
 
 - Default Cache Behavior Settings:
@@ -126,6 +132,7 @@ In this blog, we will dive deep into how to set up Amazon S3 and CloudFront to o
 - Now it's time to shut down all the services after completing our practical.
 - First, we are stopping our CloudFront service.
 - The first step is to `Disable` the `Distribution`, then after 10-15 minutes, we are able to delete the distribution.
+  
 ![Screenshot22.JPG](https://github.com/RomilMovaliya/Food-Delivery-App/blob/main/DocumentationStuff/Screenshot%20(777).png)
 
 ![Screenshot23.JPG](https://github.com/RomilMovaliya/Food-Delivery-App/blob/main/DocumentationStuff/Screenshot%20(778).png)
@@ -161,7 +168,7 @@ In this blog, we will dive deep into how to set up Amazon S3 and CloudFront to o
          `Outbound data transfer` : data is being served to users or transferred out of AWS.
 
 # Conclusion
-By integrating AWS S3 with CloudFront, you can significantly enhance the performance and scalability of your food delivery app while optimizing costs. Hosting images on S3 and serving them via CloudFront ensures faster load times, reduced bandwidth costs, and a seamless user experience, even during high traffic periods. With simple steps to set up, this approach provides an efficient, cost-effective solution for managing static assets. Moreover, by leveraging AWS's free tier, you can get started with minimal costs, making this solution perfect for small to medium-sized apps.
+By integrating AWS S3 with a cloudfront, you can increase the performance and scalability of your food distribution app by adjusting costs. Host images on S3 and serve them through Cloudfront ensure rapid load time, low bandwidth cost and a spontaneous user experience, also in high traffic periods. With simple steps to Set-up, this approach provides an efficient, cost -effective solution for stable property management. In addition, by taking advantage of AWS free level, you can start with minimal costs, so this solution can be perfect for a small medium-sized app.
 
 ## FAQS Section
 
