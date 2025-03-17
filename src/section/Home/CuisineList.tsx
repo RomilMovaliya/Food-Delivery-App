@@ -40,7 +40,11 @@ const CuisineList: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           marginTop: '25px',
-          marginInline: '50px'
+          marginInline: {
+            xs: '30px',
+            md: '40px',
+            lg: '50px'
+          }
         }}>
           <Box
             sx={{
@@ -52,12 +56,13 @@ const CuisineList: React.FC = () => {
                 lg: '40px'
               },
               padding: {
-                xs: '10px',
+                xs: '2px',
                 sm: '20px',
                 lg: '10px'
               },
               justifyContent: 'flex-start',
               overflowX: 'auto',
+              scrollbarWidth: "none",
               whiteSpace: 'nowrap',
               marginInline: {
                 sm: '20px',

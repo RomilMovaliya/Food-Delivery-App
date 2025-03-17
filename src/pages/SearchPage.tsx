@@ -1,12 +1,12 @@
 
 import { Link, useParams } from 'react-router';
-import { restaurantsData } from '../../data/RestaurantData';
-import { itemsData } from '../../data/OrderOnlineData';
+import { restaurantsData } from '../data/RestaurantData';
+import { itemsData } from '../data/OrderOnlineData';
 import { Box, Typography, Stack, Button } from '@mui/material';
-import { AllItems, ItemDetailType } from "../../types/type";
+import { AllItems, ItemDetailType } from "../types/type";
 import Lottie from 'lottie-react';
 
-import { noDataFoundAnimation } from '../../assets/index';
+import { noDataFoundAnimation } from '../assets/index';
 
 const SearchPage = () => {
     const { selectedCity, searchValue } = useParams<{
@@ -45,10 +45,7 @@ const SearchPage = () => {
 
         }
 
-            /*
-             meal.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-             meal.category.toLowerCase().includes(searchValue.toLowerCase())
-             */
+
         );
     }
 
@@ -114,7 +111,7 @@ const SearchPage = () => {
                                             {restaurant.name}
                                         </Typography>
                                         <Stack
-                                            direction={'row'}
+
                                             spacing={1}
                                             paddingBottom={2}
                                             sx={{
@@ -123,7 +120,7 @@ const SearchPage = () => {
                                                 fontFamily: 'Poppins',
                                             }}
                                         >
-                                            <Typography fontFamily={'Poppins'}>{restaurant.area} - </Typography>
+                                            <Typography fontFamily={'Poppins'}>{restaurant.area} </Typography>
                                             <Typography fontFamily={'Poppins'}>{restaurant.cost}</Typography>
                                         </Stack>
                                         <Stack direction={'row'} spacing={1} padding={1}>

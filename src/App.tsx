@@ -13,7 +13,7 @@ import AuthPage from './pages/AuthPage';
 import ProfilePage from './pages/ProfilePage';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { ROUTES } from '../src/constant/constant'
-import SearchPage from './section/Home/SearchPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
 
