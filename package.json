@@ -39,5 +39,10 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
-  }
+  },
+  "description": "As we know, when we hosting a static site on GitHub Pages or any other platform, serving images efficiently is critical for performance and cost optimization. If you are working on a Food Delivery Application that includes multiple high-resolution images, hosting them directly on GitHub Pages or any other platform can lead to slower load times and unnecessary bandwidth consumption. To optimize performance and reduce costs, we can offload images to Amazon S3 and distribute them via AWS CDN service called CloudFront, a Content Delivery Network (CDN) that caches images closer to users worldwide. This will definitely improve speed and ensure scalability.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

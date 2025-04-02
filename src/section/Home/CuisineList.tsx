@@ -1,34 +1,38 @@
 import { Box, Card, CardContent, CardMedia, Container, Stack, Typography } from '@mui/material';
 import { cuisineImg1, cuisineImg2, cuisineImg3, dish1, dish2, dish3 } from '../../assets/index'
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 interface RestaurantsData {
   id: number;
   name: string;
+  category: string;
   image: string;
   description: string;
 }
 
 const CuisineList: React.FC = () => {
 
-
   const restaurantsData: RestaurantsData[] = [
     {
       id: 1,
       name: 'Order Online',
+      category: "Order Online Restaurants",
       image: cuisineImg1,
       description: 'Get your favourite food delivered to your doorstep'
     },
     {
       id: 2,
       name: 'Dinning Out',
+      category: "Dining Restaurants",
       image: cuisineImg2,
       description: 'dine out at your favourite restaurant'
     },
     {
       id: 3,
       name: 'Nightlife and Clubs',
+      category: "Nightlife And Clubs Restaurants",
       image: cuisineImg3,
       description: 'enjoy the nightlife and clubs with your friends'
     }
